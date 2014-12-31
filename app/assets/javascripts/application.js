@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular.min
+//= require angular-resource
+//= require angular-route
+//= require angularjs/rails/resource
+//= require angular/extDirectives/devise
+//= require angular/extDirectives/autocomplete
+//= require angular/extDirectives/jquery.dataTables
+//= require angular/extDirectives/angular-datatables
+//= require angular/extDirectives/ng-infinite-scroll
+//= require angular/extDirectives/angular-validation
+//= require angular/extDirectives/angular-validation-rule
+//= require angular/app
+//= require angular/common/resources
+//= require angular/factory/userFactory
 //= require_tree .

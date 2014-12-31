@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="mainLogin main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-sm-12 formContainer">
+          <div class="row">
+            <div class="welcomeBack col-md-6 col-sm-6 col-lg-6 col-xs-12 col-md-pull-6 col-lg-pull-6 col-md-offset-6 col-sm-pull-6 col-sm-offset-6 col-lg-offset-6">
+              Welcome Back
+            </div>
+          </div>
+          <div class="loginFormContainer">
+            <div class="loginForm"> 
+              <span ng-show="userModel.loginError" class="validErr">
+                {{userModel.loginError}}
+              </span>
+              <div class="form-group row">
+                <div class="col-md-2 col-sm-12 loginLabel">Email</div>
+                <div class="col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 col-sm-12">
+                    <input type="text" autofocus="autofocus" ng-model="user.email" ng-enter="login()">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-2 col-sm-12 loginLabel">Password</div>
+                <div class="col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 col-sm-12">
+                    <input autocomplete="off" ng-model="user.password" type="password" ng-enter="login()">
+                </div>
+              </div>
+              <div class="col-sm-12 forgotPassword">
+                Forgot password ?
+                <span><a href="/forgotPassword">Click here</a></span> 
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="loginButton">
+                    <a ng-click="login()" class="btn btn-success polymer-button">LOGIN</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

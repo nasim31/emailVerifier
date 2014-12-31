@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'ProximaNovaLight';
+    src: url('/assets/ProximaNova-Light/proximanova-light.eot');
+    src: url('/assets/ProximaNova-Light/proximanova-light.eot') format('embedded-opentype'),
+         url('/assets/ProximaNova-Light/proximanova-light.woff') format('woff'),
+         url('/assets/ProximaNova-Light/proximanova-light.ttf') format('truetype'),
+         url('/assets/ProximaNova-Light/proximanova-light.svg#ProximaNovaLight') format('svg');
+}
+
+@font-face {
+    font-family: 'ProximaNovaRegular';
+    src: url('/assets/ProximaNova-Regular/proximanova-regular.eot');
+    src: url('/assets/ProximaNova-Regular/proximanova-regular.eot') format('embedded-opentype'),
+         url('/assets/ProximaNova-Regular/proximanova-regular.woff') format('woff'),
+         url('/assets/ProximaNova-Regular/proximanova-regular.ttf') format('truetype'),
+         url('/assets/ProximaNova-Regular/proximanova-regular.svg#ProximaNovaRegular') format('svg');
+}
+@font-face {
+    font-family: 'ProximaNovaBold';
+    src: url('/assets/ProximaNova-Bold/proximanova-bold.eot');
+    src: url('/assets/ProximaNova-Bold/proximanova-bold.eot') format('embedded-opentype'),
+         url('/assets/ProximaNova-Bold/proximanova-bold.woff2') format('woff2'),
+         url('/assets/ProximaNova-Bold/proximanova-bold.woff') format('woff'),
+         url('/assets/ProximaNova-Bold/proximanova-bold.ttf') format('truetype'),
+         url('/assets/ProximaNova-Bold/proximanova-bold.svg#ProximaNovaBold') format('svg');
+}

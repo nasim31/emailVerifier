@@ -1,0 +1,260 @@
+.header{
+  background: #398edb;
+  padding: 0 19px;
+  border-top: 4px solid #2980b9;
+}
+#navbar .nav li a{
+  color: #fff;
+}
+#navbar .nav li a:hover, #navbar .nav li a:focus{
+  background: transparent;
+}
+.headerToggle{
+  background-color: transparent;
+}
+.headerToggle .icon-bar{
+  background: #fff;
+}
+.sidebar{
+  background: #34495e;
+  padding: 0;
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.sidebar .nav-sidebar li a{
+  font-size: 16px;
+  font-family: 'ProximaNovaRegular';
+  color: #fff;
+}
+.sidebar .nav-sidebar li:hover{
+  background-color: #2980b9;
+}
+.sidebar .sideTab{
+  margin: 15px 0;
+}
+.sidebar .sideTab a img{
+  padding: 0 15px;
+}
+.sidebar .sideTab a:hover{
+  background: transparent;
+  color: #fff;
+}
+.sidebar .sideTab a:focus {
+  background: transparent;
+  outline: none;
+}
+.sidebar .nav-sidebar li:hover a{
+  color: #fff;
+  text-decoration: none;
+}
+.main{
+  background: #f6f6f6;
+  padding: 75px 20px 0;
+}
+.sidebarBtn{
+  display: none;
+}
+.upload{
+  border: 3px #5c5c5c dashed;
+  width: 50%;
+  margin: 135px auto;
+  min-height: 300px;
+  padding: 20px;
+  color: #5c5c5c;
+  font-family: 'ProximaNovaRegular';
+  border-radius: 3px;
+  background: #fff
+}
+.upload img{
+  margin-bottom: 20px;
+}
+.acceptFiles{
+  display: block;
+  margin: 45px 0 0;
+  color: #3498db;
+}
+.acceptFiles span:first-child{
+  font-family: 'ProximaNovaBold';
+  color: #5c5c5c;
+}
+.browseBtn{
+  color: #3498db;
+  border-radius: 15px;
+  background: #fff;
+  border: 1px solid #CDCDCD;
+  box-shadow: inset 0px -2px 0px 0px #ddd;
+  outline: none;
+}
+.browseBtn:focus, .browseBtn:active:focus{
+  outline: none;
+}
+.panel{
+  padding: 50px 25px 15px; 
+  margin-top: 30px;
+  border: 1px solid #ddd;
+}
+#verifyContent{
+  display: none;
+} 
+#downloadContent{
+  display: none;
+}
+.verify table tr th, .download table tr th{
+  border-bottom: 1px solid #ddd;
+  font-family: 'ProximaNovaBold';
+  font-size: 18px;
+  color: #303030;
+}
+.verify table tr td, .download table tr td{
+  border: none;
+  font-family: 'ProximaNovaRegular';
+  font-size: 15px;
+  color: #303030;
+}
+.verifytable td, .verifytable th, .downloadtable td, .downloadtable th { 
+  padding: 20px 0 5px !important;  
+}
+.verifytable td .listName, .downloadtable td .listName{
+  width: 180px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.btn-verify, .btn-report, .btn-download{
+  border-radius: 15px;
+  font-size: 14px;
+  margin-top: -3px;
+}
+.btn-verify{
+  background: #fff;
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+  padding: 3px 25px;
+}
+.btn-verify:focus, .btn-verify:hover, .btn-verify:active:focus{
+  background: #2ecc71;
+  color: #fff;
+  outline: none;
+}
+.btn-report{
+  background: #fff;
+  color: #3498db;
+  border: 1px solid #3498db;
+  padding: 3px 15px;
+}
+.btn-report i{
+  margin-left: 10px;
+}
+.btn-report:focus, .btn-report:hover, .btn-report:active:focus{
+  background: #3498db;
+  color: #fff;
+  outline: none;
+}
+.btn-download{
+  background: #fff;
+  color: #ff981f;
+  border: 1px solid #ff981f;
+  padding: 3px 15px;
+}
+.btn-download img{
+  margin-right: 10px;
+}
+.btn-download:focus, .btn-download:hover, .btn-download:active:focus{
+  outline: none;
+}
+@media only screen and (min-width: 992px) and (max-width: 1024px){
+  .sidebar .sideTab a img{
+    padding: 0 12px;
+  }
+}
+@media 
+only screen and (max-width: 991px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  /* Force table to not be like tables anymore */
+  .verifytable, .downloadtable, thead, tbody, th, td, tr { 
+    display: block; 
+  }
+  
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .verifytable thead tr, .downloadtable thead tr  { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .verifytable tr, .downloadtable tr { 
+    border: 1px solid #ccc; 
+    margin-bottom: 20px;
+    padding: 15px 10px;
+  }
+  
+  .verifytable td, .downloadtable td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding: 10px 0 5px !important;
+    padding-left: 50% !important; 
+  }
+  .verifytable td:before, .downloadtable td:before { 
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 10px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+  }
+  
+  /*  Label the data  */
+  .verifytable td:nth-of-type(1):before { content: "S.No"; }
+  .verifytable td:nth-of-type(2):before { content: "List Name"; }
+  .verifytable td:nth-of-type(3):before { content: "No of records"; }
+  .verifytable td:nth-of-type(4):before { content: "File status"; }
+
+  .downloadtable td:nth-of-type(1):before { content: "S.No"; }
+  .downloadtable td:nth-of-type(2):before { content: "List Name"; }
+  .downloadtable td:nth-of-type(3):before { content: "No of records"; }
+}
+@media only screen and (max-width: 767px) {
+  .sidebarBtn{
+    display: block;
+    margin-top: 20px;
+    font-size: 30px;
+    color: #676767;
+  }
+  .sidebarBtn:hover{
+    cursor: pointer;
+  }
+  .sidebar{
+    margin-left: -60%;
+  }
+}
+@media only screen and (max-width: 568px){
+  .panel{
+    padding: 50px 10px 15px;
+  }
+}
+@media only screen and (max-width: 480px){
+  .header{
+    padding: 0 5px;
+  }
+  .verifytable td:before, .downloadtable td:before {
+    left: 2px;
+  }
+  .verifytable td .listName, .downloadtable td .listName{
+    width: 100%;
+  }
+  .btn-report, .btn-download{
+    margin-left: -50px;
+  }
+}

@@ -27,6 +27,18 @@ gem 'spring',        group: :development
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
+gem 'devise'
+gem 'rails_admin'
+gem 'cancan'
+gem 'pry-rails', :group => :development
+gem 'carrierwave'
+# gem 'carrierwave-aws'
+gem 'roo' # For Reading and parsing Excel
+gem 'dbf' # For reading all DBF
+gem 'angularjs-rails'
+gem 'angular_rails_csrf'
+gem 'angularjs-rails-resource', '~> 1.1.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
