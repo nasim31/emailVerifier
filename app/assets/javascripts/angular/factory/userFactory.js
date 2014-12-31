@@ -9,15 +9,17 @@ myApp.factory('Userfactory', ["Auth", "$http", "$location", "$rootScope", "$q", 
   }
   
   Userfactory.isLogged = function(){
+    console.log("Checking is logged")
     if(!Userfactory.model.active){
-      var deffered = $q.defer()
-      Auth.currentUser().then(function(user) {
+      // var deffered = $q.defer()
+      return Auth.currentUser().then(function(user) {
         Userfactory.model.detail = user
         Userfactory.model.active = true
+        // deffered.resolve()
       }, function(error) {
-        deffered.reject(error)
+        // deffered.reject(error)
       });
-      return deffered.promise;
+      // return deffered.promise;
     }
   }
 

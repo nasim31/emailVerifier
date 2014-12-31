@@ -35,16 +35,16 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
 
 }]).run( 
 
- ["$rootScope", "$location", "$route", "Auth", "Userfactory", "$timeout", function($rootScope, $location, $route, Auth,Userfactory,$timeout) {
+ ["$rootScope", "$location", "$route", "Auth", "Userfactory", "$timeout", function($rootScope, $location, $route,Auth,Userfactory,$timeout) {
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       $('.mainContent').hide();
       $('.apploader').show();
       if($rootScope.loggedUser === undefined) {
         Userfactory.isLogged().then(function(user) {
           $rootScope.loggedUser = true;
-          $timeout(function(){
+          // $timeout(function(){
             authenticate(next);
-          },500);
+          // },500);
         }, function(error) {
             notLogged(next)
         });
@@ -72,10 +72,8 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
                       "/assets/user/forgotPassword.html",
                       "/assets/user/register.html"]
       
-      if(status == 3) {
-        if($.inArray(next.$$route.templateUrl,noaccess) != -1) {
-          $location.path('/dashboard')
-        }
+      if($.inArray(next.$$route.templateUrl,noaccess) != -1) {
+        $location.path('/dashboard')
       }
     }
  }]);
