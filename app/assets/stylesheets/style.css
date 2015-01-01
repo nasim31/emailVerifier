@@ -258,3 +258,17 @@ only screen and (max-width: 991px),
     margin-left: -50px;
   }
 }
+
+
+
+
+/*Additional CSS*/
+div[dropzone] {
+    border: 2px dashed #bbb;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    font: 20pt bold;
+    color: #bbb;
+    margin-bottom: 20px;
+}
