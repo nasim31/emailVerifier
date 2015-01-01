@@ -1,1 +1,1 @@
-var myApp = angular.module('myApp',["ngRoute","Devise","rails"]);
+var myApp = angular.module('myApp',["ngRoute","Devise","rails","angular-loading-bar"]);

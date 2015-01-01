@@ -6,19 +6,21 @@ myApp.directive("dropzone", function() {
       elem[0].addEventListener('dragover', function(evt) {
         evt.preventDefault();
         evt.stopPropagation();
-        console.log("Drag Over");
+        elem.addClass("dragOver");
       }, false);
 
       elem[0].addEventListener('dragenter', function(evt) {
         evt.preventDefault();
         evt.stopPropagation();
         console.log("Drag Enter");
+        elem.addClass("dragOver");
       }, false);
 
       elem[0].addEventListener('dragleave', function(evt) {
          evt.preventDefault();
           evt.stopPropagation();
           console.log("Drag Leave");
+          elem.removeClass("dragOver");
       }, false);
 
       elem[0].addEventListener('drop', function(evt) {

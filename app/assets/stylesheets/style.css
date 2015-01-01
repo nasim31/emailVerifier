@@ -263,12 +263,10 @@ only screen and (max-width: 991px),
 
 
 /*Additional CSS*/
-div[dropzone] {
-    border: 2px dashed #bbb;
-    border-radius: 5px;
-    padding: 25px;
-    text-align: center;
-    font: 20pt bold;
-    color: #bbb;
-    margin-bottom: 20px;
+.dragOver {
+    border: 2px dashed green;
+}
+#loading-bar {
+  z-index:10000;
+  background-color: #fff;
 }
