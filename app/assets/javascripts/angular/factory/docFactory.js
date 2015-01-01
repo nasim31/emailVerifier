@@ -1,5 +1,5 @@
 myApp.factory('DocFactory', ["Auth", "$http", "$location", "$rootScope", "$q", "$timeout","Doc", function(Auth,$http,$location,$rootScope,$q,$timeout,Doc){
-  var UserfactoDocFactoryry = {}
+  var DocFactory = {}
   
   DocFactory.model = {}
   
@@ -7,7 +7,5 @@ myApp.factory('DocFactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
     console.log("Checking is logged")
   }
 
- 
-
-  return Userfactory;
+  return DocFactory;
 }])
