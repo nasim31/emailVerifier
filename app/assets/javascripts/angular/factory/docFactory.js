@@ -4,7 +4,7 @@ myApp.factory('DocFactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
   DocFactory.model = {}
   
   DocFactory.uploadFiles = function(){
-    console.log("Checking is logged")
+    console.log("Checking Upload file")
   }
 
   return DocFactory;

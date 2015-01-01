@@ -20,9 +20,13 @@
       <a class="navbar-brand" href="/"><img src="assets/logo.png"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      {{loggedUser}}
+      <ul class="nav navbar-nav navbar-right" ng-hide="loggedUser">
         <li><a href="login">Login</a></li>
         <li><a href="register">Create a account</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-show="loggedUser">
+        <li><a target="_self" href="/users/sign_out">logout</a></li>
       </ul>
     </div>
   </div>

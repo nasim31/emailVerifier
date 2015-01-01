@@ -40,11 +40,9 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
       $('.mainContent').hide();
       $('.apploader').show();
       if($rootScope.loggedUser === undefined) {
-        Userfactory.isLogged().then(function(user) {
-          $rootScope.loggedUser = true;
-          // $timeout(function(){
-            authenticate(next);
-          // },500);
+        Userfactory.isLogged().then(
+        function(user) {
+          authenticate(next);
         }, function(error) {
             notLogged(next)
         });
@@ -64,7 +62,7 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
       }
     }
 
-    function authenticate(next){
+    function authenticate(next){      
       $rootScope.loggedUser = true;
       $('.mainContent').show();
       $('.apploader').hide();

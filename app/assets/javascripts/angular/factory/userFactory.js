@@ -9,17 +9,13 @@ myApp.factory('Userfactory', ["Auth", "$http", "$location", "$rootScope", "$q", 
   }
   
   Userfactory.isLogged = function(){
-    console.log("Checking is logged")
     if(!Userfactory.model.active){
-      // var deffered = $q.defer()
       return Auth.currentUser().then(function(user) {
         Userfactory.model.detail = user
-        Userfactory.model.active = true
-        // deffered.resolve()
+        $rootScope.loggedUser = true
       }, function(error) {
-        // deffered.reject(error)
+        $rootScope.loggedUser = false;
       });
-      // return deffered.promise;
     }
   }
 
@@ -27,19 +23,9 @@ myApp.factory('Userfactory', ["Auth", "$http", "$location", "$rootScope", "$q", 
     Auth.login(user).then(function(user) {
       Userfactory.model.detail = user
       $rootScope.loggedUser = true;
-      Userfactory.model.active = true
       Userfactory.model.loginError = ""
     }, function(error) {
       Userfactory.model.loginError = error.data.error
-    });
-  }
-
-  Userfactory.logout = function($event){
-    // $($event.target).removeClass('fa-sign-out').addClass('fa-spinner fa-spin')
-    Auth.logout().then(function(user) {
-      location.reload();
-    }, function(error) {
-      // Authentication failed...
     });
   }
 
@@ -54,10 +40,6 @@ myApp.factory('Userfactory', ["Auth", "$http", "$location", "$rootScope", "$q", 
         Auth.register(user).then(function(user) {
           Userfactory.model.detail = user
           $rootScope.loggedUser = true;
-          Userfactory.model.active = true
-          // $location.path("/profile/personalinfo/new");
-          // $('.mainContent').show();
-          // $('.apploader').hide();
         }, function(error) {
           Userfactory.model.regError = error.data.errors
         });
