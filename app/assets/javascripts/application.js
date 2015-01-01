@@ -23,6 +23,7 @@
 //= require angular/extDirectives/ng-infinite-scroll
 //= require angular/extDirectives/angular-validation
 //= require angular/extDirectives/angular-validation-rule
+//= require angular/extDirectives/angularjs-file-upload
 //= require angular/app
 //= require angular/common/resources
 //= require angular/factory/userFactory

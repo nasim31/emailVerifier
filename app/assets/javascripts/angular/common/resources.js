@@ -13,10 +13,10 @@ myApp.config(["railsSerializerProvider", function(railsSerializerProvider) {
 //   return account;
 // }]);
 
-myApp.factory('Document', ['railsResourceFactory','railsSerializer', function (railsResourceFactory,railsSerializer) {
-  var documents = railsResourceFactory({
-    url: '/documents',
-    name: 'documents',
+myApp.factory('Doc', ['railsResourceFactory','railsSerializer', function (railsResourceFactory,railsSerializer) {
+  var docs = railsResourceFactory({
+    url: '/docs',
+    name: 'docs',
   });
-  return documents;
+  return docs;
 }]);

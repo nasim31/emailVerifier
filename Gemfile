@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem 'bson_ext'
 
 gem 'devise'
@@ -36,8 +37,10 @@ gem 'carrierwave'
 gem 'roo' # For Reading and parsing Excel
 gem 'dbf' # For reading all DBF
 gem 'angularjs-rails'
+gem 'angularjs-file-upload-rails', '~> 1.1.5'
 gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
