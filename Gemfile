@@ -37,7 +37,6 @@ gem 'carrierwave'
 gem 'roo' # For Reading and parsing Excel
 gem 'dbf' # For reading all DBF
 gem 'angularjs-rails'
-gem 'angularjs-file-upload-rails', '~> 1.1.5'
 gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
 

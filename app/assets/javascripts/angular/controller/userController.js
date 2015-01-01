@@ -1,10 +1,8 @@
 myApp.controller('userController',
-  ['$scope','$location','Auth','$rootScope','$routeParams','$http','Userfactory','FileUploader','DocFactory'
-    function($scope,$location,Auth,$rootScope,$routeParams,$http,Userfactory,FileUploader,DocFactory) {
+  ['$scope','$location','Auth','$rootScope','$routeParams','$http','Userfactory',,'DocFactory'
+    function($scope,$location,Auth,$rootScope,$routeParams,$http,Userfactory,DocFactory) {
   
       $scope.userModel = Userfactory.model
-      
-      $scope.upload = DocFactory.uploadFiles()
 
       $scope.login = function(){
         Userfactory.login($scope.user)
