@@ -1,7 +1,7 @@
 class Document
   include Mongoid::Document
-  mount_uploader :documents, DocumentsUploader
-  field :file
+  mount_uploader :files, DocumentsUploader
+  field :files
   # field :column1
   # field :column2
   # field :column3

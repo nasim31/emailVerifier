@@ -33,6 +33,7 @@ gem 'rails_admin'
 gem 'cancan'
 gem 'pry-rails', :group => :development
 gem 'carrierwave'
+gem "carrierwave-mongoid", git: "git://github.com/jnicklas/carrierwave-mongoid.git"
 # gem 'carrierwave-aws'
 gem 'roo' # For Reading and parsing Excel
 gem 'dbf' # For reading all DBF
