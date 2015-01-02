@@ -95,7 +95,7 @@
   outline: none;
 }
 .panel{
-  padding: 50px 25px 15px; 
+  padding: 0px 25px 15px; 
   margin-top: 30px;
   border: 1px solid #ddd;
 }
@@ -103,7 +103,7 @@
   display: none;
 } 
 #downloadContent{
-  display: none;
+  margin-top: 50px;
 }
 .verify table tr th, .download table tr th{
   border-bottom: 1px solid #ddd;
@@ -264,7 +264,7 @@ only screen and (max-width: 991px),
 
 /*Additional CSS*/
 .dragOver {
-    border: 2px dashed green;
+    border: 2px solid green;
 }
 #loading-bar {
   z-index:10000;

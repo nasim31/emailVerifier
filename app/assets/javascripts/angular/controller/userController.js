@@ -1,6 +1,6 @@
 myApp.controller('userController',
-  ['$scope','$location','Auth','$rootScope','$routeParams','$http','Userfactory','DocFactory',
-    function($scope,$location,Auth,$rootScope,$routeParams,$http,Userfactory,DocFactory) {
+  ['$scope','$location','Auth','$rootScope','$routeParams','$http','Userfactory','Docfactory',
+    function($scope,$location,Auth,$rootScope,$routeParams,$http,Userfactory,Docfactory) {
       
       $scope.userModel = Userfactory.model
 
@@ -28,7 +28,7 @@ myApp.controller('userController',
         );
       }
 
-      $scope.uploadFile = function(files) {
+      $scope.uploadFile  = function(files) {
         //Take the first selected file
         for (var i = 0; i < files.length; i++) {
           var fd = new FormData();

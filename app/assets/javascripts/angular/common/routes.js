@@ -29,7 +29,13 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
       { 
         templateUrl: "/assets/user/dashboard.html",
         controller: "userController",
-        login: false
+        login: true
+      })
+    .when("/documents",
+      { 
+        templateUrl: "/assets/doc/documents.html",
+        controller: "docController",
+        login: true
       })
     .otherwise({ redirectTo: "/" });
 
@@ -37,14 +43,13 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
 
  ["$rootScope", "$location", "$route", "Auth", "Userfactory", "$timeout", function($rootScope, $location, $route,Auth,Userfactory,$timeout) {
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      $('.mainContent').hide();
-      $('.apploader').show();
       if($rootScope.loggedUser === undefined) {
         Userfactory.isLogged().then(
         function(user) {
           authenticate(next);
-        }, function(error) {
-            notLogged(next)
+        }, 
+        function(error) {
+          notLogged(next)
         });
       } else if ( $rootScope.loggedUser == true ) {
         authenticate(next);
@@ -55,8 +60,6 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
 
     function notLogged(next){
       $rootScope.loggedUser = false;
-      $('.mainContent').show();
-      $('.apploader').hide();
       if ( next.login )  {
         $location.path( "/login" );
       }
@@ -64,14 +67,15 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
 
     function authenticate(next){      
       $rootScope.loggedUser = true;
-      $('.mainContent').show();
-      $('.apploader').hide();
-      var noaccess = ["/assets/user/login.html",
-                      "/assets/user/forgotPassword.html",
-                      "/assets/user/register.html"]
+      // var noaccess = ["/assets/user/login.html",
+      //                 "/assets/user/forgotPassword.html",
+      //                 "/assets/user/register.html"]
       
-      if($.inArray(next.$$route.templateUrl,noaccess) != -1) {
-        $location.path('/dashboard')
+      // if($.inArray(next.$$route.templateUrl,noaccess) != -1) {
+      //   $location.path('/dashboard')
+      // }
+      if ( !next.login )  {
+        $location.path( "/dashboard" );
       }
     }
  }]);

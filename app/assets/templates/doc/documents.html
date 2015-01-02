@@ -1,0 +1,30 @@
+<div class="download col-lg-10 pull-right" id="downloadContent">
+  <div class="panel">
+    <table class="table downloadtable">
+      <thead>
+        <tr>
+          <th>Delete</th>
+          <th>List Name</th>
+          <th>No. of records</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="file in docModel.files">
+          <td>
+            <a ng-click="delete(file)" class="btn btn-danger">
+              <span class="fa fa-trash"></span>
+            </a>
+          </td>
+          <td><span class="listName">FILE NAME</span></td>
+          <td>NO OF RECORDS</td>
+          <td>
+            <a href="{{file.files.url}}" target="_blank" class="btn btn-sm btn-download">
+              DOWNLOAD
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
