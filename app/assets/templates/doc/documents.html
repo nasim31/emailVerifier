@@ -5,7 +5,7 @@
         <tr>
           <th>Delete</th>
           <th>List Name</th>
-          <th>No. of records</th>
+          <th>File Type</th>
           <th></th>
         </tr>
       </thead>
@@ -16,10 +16,10 @@
               <span class="fa fa-trash"></span>
             </a>
           </td>
-          <td><span class="listName">FILE NAME</span></td>
-          <td>NO OF RECORDS</td>
+          <td><span class="listName">{{file.title|uppercase}}</span></td>
+          <td>{{file.filetype}}</td>
           <td>
-            <a href="{{file.files.url}}" target="_blank" class="btn btn-sm btn-download">
+            <a href="{{file.file.url}}" target="_blank" class="btn btn-sm btn-download">
               DOWNLOAD
             </a>
           </td>

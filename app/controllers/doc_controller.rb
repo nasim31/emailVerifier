@@ -4,7 +4,11 @@ class DocController < ApplicationController
   end
   def create
     doc = Document.new()
-    doc.files = params[:file]
+    doc.file = params[:file]
+    title = params[:file].original_filename.split(".")
+    doc.title = title[0]
+    doc.filetype = title[1]
+    doc.created_at = Time.now
     doc.save
     render :json => doc
   end

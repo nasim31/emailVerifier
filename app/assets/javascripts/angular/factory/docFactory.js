@@ -12,7 +12,6 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
   Docfactory.getFiles = function(){
     console.log("Document");
     Doc.query().then(function(data){
-      console.log(data);
       Docfactory.model.files = data;
     })
   }

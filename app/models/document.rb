@@ -1,13 +1,17 @@
 class Document
   include Mongoid::Document
-  mount_uploader :files, DocumentsUploader
-  field :files
+  mount_uploader :file, DocumentsUploader
+  field :file
+  field :filetype
+  field :title
+  field :created_at
+
   has_one :file_header
   has_many :file_records
 
   def self.processDoc(docId)
     doc = Document.find(docId)
-    file = File.join(Rails.root,"/public/",doc.files.url)
+    file = File.join(Rails.root,"/public/",doc.file.url)
     file = Roo::Excelx.new(file)
     sheetOne = file.sheet(0)
     rowNum = 0
@@ -34,5 +38,10 @@ class Document
       end
       doc.file_records.create(insertingData)
     end
+  end
+
+  def self.downloadFile(docId)
+    doc = Document.find(docId)
+    doc.file_header
   end
 end
