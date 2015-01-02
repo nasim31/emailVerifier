@@ -2,34 +2,37 @@ class Document
   include Mongoid::Document
   mount_uploader :files, DocumentsUploader
   field :files
-  # field :column1
-  # field :column2
-  # field :column3
-  # field :column4
-  # field :column5
-  # field :column6
-  # field :column7
-  # field :column8
-  # field :column9
-  # field :column10
-  # field :column11
-  # field :column12
-  # field :column13
-  # field :column14
-  # field :column15
-  # field :column16
-  # field :column17
-  # field :column18
-  # field :column19
-  # field :column20
-  # field :column21
-  # field :column22
-  # field :column23
-  # field :column24
-  # field :column25
-  # field :column26
-  # field :column27
-  # field :column28
-  # field :column29
-  # field :column30
+  has_one :file_header
+  has_many :file_records
+
+  def self.processDoc(docId)
+    doc = Document.find(docId)
+    file = File.join(Rails.root,"/public/",doc.files.url)
+    file = Roo::Excelx.new(file)
+    sheetOne = file.sheet(0)
+    rowNum = 0
+    header = []
+    sheetOne.each do |row|
+      if rowNum == 0
+        rowNum = 1
+        #Header
+        header = row
+        i = 0
+        insertingData = {}
+        header.each do |title|
+          i += 1
+          insertingData["column#{i}"] = title
+        end
+        doc.create_file_header(insertingData)
+        next
+      end
+      insertingData = {}
+      i = 0
+      row.each do |data|
+        i += 1
+        insertingData["column#{i}"] = data
+      end
+      doc.file_records.create(insertingData)
+    end
+  end
 end
