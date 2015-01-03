@@ -33,4 +33,5 @@ class FileRecord
   field :column28
   field :column29
   field :column30
+  field :status
 end

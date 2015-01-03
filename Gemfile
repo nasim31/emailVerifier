@@ -40,6 +40,8 @@ gem 'dbf' # For reading all DBF
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
+gem 'email_verifier'
+gem 'delayed_job_mongoid'
 
 
 # Use ActiveModel has_secure_password

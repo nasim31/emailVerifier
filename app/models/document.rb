@@ -51,10 +51,20 @@ class Document
 
   def self.verifyRecords(docId)
     doc = Document.find(docId)
+    # updated = 0
     doc.file_records.each do |record|
-      # record[doc.columnToVerify]
-
-      binding.pry
+      # updated += 1
+      # if(updated == 10)
+      # end
+      begin
+        if EmailVerifier.check(record[doc.columnToVerify])
+          record.update_attributes(:status => "Active")
+        else
+          record.update_attributes(:status => "InActive")
+        end
+      rescue
+        record.update_attributes(:status => "Error")
+      end
     end
   end
 
