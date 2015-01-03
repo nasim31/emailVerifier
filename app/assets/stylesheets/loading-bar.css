@@ -30,7 +30,7 @@
   -o-transition: width 350ms;
   transition: width 350ms;
 
-  background: #29d;
+  background: #fff;
   position: fixed;
   z-index: 10002;
   top: 0;
@@ -62,7 +62,7 @@
   display: block;
   position: fixed;
   z-index: 10002;
-  top: 10px;
+  top: 20px;
   left: 10px;
 }
 
@@ -71,8 +71,8 @@
   height: 14px;
 
   border:  solid 2px transparent;
-  border-top-color:  #29d;
-  border-left-color: #29d;
+  border-top-color:  #fff;
+  border-left-color: #fff;
   border-radius: 10px;
 
   -webkit-animation: loading-bar-spinner 400ms linear infinite;

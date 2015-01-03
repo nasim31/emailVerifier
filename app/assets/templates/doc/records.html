@@ -1,0 +1,14 @@
+<div class="col-lg-10 pull-right" ng-show="docModel.currentRecords.length > 0">
+  <table class="table table-hover">
+    <tbody>
+      <tr ng-repeat="records in docModel.currentRecords">
+        <td>{{records}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="col-lg-10 pull-right" ng-hide="docModel.currentRecords.length > 0">
+  <br><br><br><br><br><br>
+  <span class="fa fa-spin fa-spinner"></span>Loading...
+</div>

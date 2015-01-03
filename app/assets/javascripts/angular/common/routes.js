@@ -37,6 +37,12 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
         controller: "docController",
         login: true
       })
+    .when("/document/:id",
+      { 
+        templateUrl: "/assets/doc/records.html",
+        controller: "docController",
+        login: true
+      })
     .otherwise({ redirectTo: "/" });
 
 }]).run( 

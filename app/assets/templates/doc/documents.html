@@ -6,6 +6,8 @@
           <th>Delete</th>
           <th>List Name</th>
           <th>File Type</th>
+          <th>No of Records</th>
+          <th>Status</th>
           <th></th>
         </tr>
       </thead>
@@ -16,15 +18,71 @@
               <span class="fa fa-trash"></span>
             </a>
           </td>
-          <td><span class="listName">{{file.title|uppercase}}</span></td>
+          <td>{{file.title|uppercase}}</td>
           <td>{{file.filetype}}</td>
+          <td>{{file.noOfRecords}}</td>
           <td>
-            <a href="{{file.file.url}}" target="_blank" class="btn btn-sm btn-download">
-              DOWNLOAD
+            <span class="fa fa-spin fa-spinner" 
+                  ng-show="file.status == 'Verifying'"></span>
+            {{file.status}}
+            <span ng-show="file.status == 'Verifying'">
+              : {{file.columnToVerify}}
+            </span>
+          </td>
+          <td ng-if="file.status == 'Not started'" >
+            <a ng-click="parseFile(file)" 
+               class="btn btn-sm btn-download">
+              PARSE FILE
+            </a>
+          </td>
+          <td ng-if="file.status != 'Not started'" >
+            <a href="/document/{{file._id}}" 
+               class="btn btn-sm btn-download">
+              View Records
+            </a>
+          </td> 
+          <td ng-if="file.status == 'Parsed'" >
+            <a class="btn btn-sm btn-download"
+                ng-click="verifyModel(file)">
+              Start verifying
+            </a>
+          </td>
+          <td ng-if="file.status == 'Verifying'" >
+            <a class="btn btn-sm btn-download"
+               ng-click="downloadRequest(file)">
+              Request Download.
             </a>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Choose your Email header</h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li ng-repeat="(key,head) in currentHeader" ng-show="columnToVerify(key,head)">
+            <input type="radio" name="radio" ng-click="selectedColumn(key)">
+            {{head}}
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" 
+                class="btn btn-primary"
+                ng-click="verificationRequest()">
+          Start verifying
+        </button>
+      </div>
+    </div>
   </div>
 </div>

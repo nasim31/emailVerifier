@@ -27,6 +27,9 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+.modal-backdrop {
+  z-index: 0;
+}
 .sidebar .nav-sidebar li a{
   font-size: 16px;
   font-family: 'ProximaNovaRegular';
