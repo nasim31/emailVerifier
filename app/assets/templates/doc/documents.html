@@ -49,10 +49,17 @@
               Start verifying
             </a>
           </td>
+
           <td ng-if="file.status == 'Verifying'" >
             <a class="btn btn-sm btn-download"
-               ng-click="downloadRequest(file)">
-              Request Download.
+                href="/doc/downloadRequest/{{file._id}}.csv"
+                target="_blank">
+              Download CSV
+            </a>
+            <a class="btn btn-sm btn-download"
+                href="/doc/downloadRequest/{{file._id}}.xls"
+                target="_blank">
+              Download EXCEL
             </a>
           </td>
         </tr>

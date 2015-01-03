@@ -70,9 +70,17 @@ class Document
     end
   end
 
-  def self.downloadRequest(docId)
+  def self.to_csv(options = {}, docId)
     doc = Document.find(docId)
-    doc.update_attributes(:downloadRequest => true)
-    binding.pry
+    ignored_attributes = ["_id"]
+    @header = doc.file_header
+    @all_rows = doc.file_records
+
+    CSV.generate(options) do |csv|
+      csv << @header.attributes.delete_if{ |attr, value| ignored_attributes.include?(attr) }.values      
+      @all_rows.each  do |record|
+        csv << record.attributes.delete_if{ |attr, value| ignored_attributes.include?(attr) }.values
+      end 
+    end
   end
 end

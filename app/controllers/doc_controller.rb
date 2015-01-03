@@ -38,10 +38,19 @@ class DocController < ApplicationController
     render :json => Document.find(params[:doc][:id])
   end
   def downloadRequest
-    doc = Document.find(params[:doc][:id])
-    doc.update_attributes(:downloadRequest => true)
-    Document.downloadRequest(params[:doc][:id])
-    render :json => doc
+    respond_to do |format|
+      format.html  # index.html.erb
+      format.csv  { 
+        send_data Document.to_csv(params[:id])
+      }
+      format.xls  { 
+        send_data Document.to_csv({:col_sep => "\t"},params[:id])
+      }
+    end
+    # doc = Document.find(params[:doc][:id])
+    # doc.update_attributes(:downloadRequest => true)
+    # Document.downloadRequest(params[:doc][:id])
+    # render :json => doc
   end
 
   def to_json(*args)
