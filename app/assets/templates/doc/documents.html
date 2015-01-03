@@ -29,21 +29,19 @@
               : {{file.columnToVerify}}
             </span>
           </td>
-          <!-- <td ng-if="file.status == 'Not started'" > -->
-          <td>
+          <td ng-if="file.status == 'Not started'" >
             <a ng-click="parseFile(file)" 
                class="btn btn-sm btn-download">
               PARSE FILE
             </a>
           </td>
-          <td ng-if="file.status != 'Not started'" >
+          <td ng-if="file.status == 'Verifying'" >
             <a href="/document/{{file._id}}" 
                class="btn btn-sm btn-download">
-              View Records
+              View Status
             </a>
           </td> 
-          <!-- <td ng-if="file.status == 'Parsed'" > -->
-          <td>
+          <td ng-if="file.status == 'Parsed'" >
             <a class="btn btn-sm btn-download"
                 ng-click="verifyModel(file)">
               Start verifying

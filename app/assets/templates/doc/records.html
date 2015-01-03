@@ -1,14 +1,66 @@
-<div class="col-lg-10 pull-right" ng-show="docModel.currentRecords.length > 0">
+<div class="col-lg-10 pull-right">
   <table class="table table-hover">
     <tbody>
-      <tr ng-repeat="records in docModel.currentRecords">
-        <td>{{records}}</td>
+      <tr>
+        <td>Title</td>
+        <td>{{docModel.currentDoc.title}}</td>
+      </tr>
+      <tr>
+        <td>File Type</td>
+        <td>{{docModel.currentDoc.filetype}}</td>
+      </tr>
+      <tr>
+        <td>No Of Records Parsed</td>
+        <td>{{docModel.currentDoc.noOfRecords}}</td>
+      </tr>
+      <tr>
+        <td>Last chosen column to Verify</td>
+        <td>{{docModel.currentDoc.columnToVerify}}</td>
+      </tr>
+      <tr>
+        <td>Created at</td>
+        <td>{{docModel.currentDoc.created_at}}</td>
+      </tr>
+      <tr>
+        <td>No of Active Records:</td>
+        <td>{{docModel.currentDoc.active}}</td>
+      </tr>
+      <tr>
+        <td>No of InActive Records:</td>
+        <td>{{docModel.currentDoc.inactive}}</td>
+      </tr>
+      <tr>
+        <td>No of Error Records:</td>
+        <td>{{docModel.currentDoc.error}}</td>
+      </tr>
+      <tr>
+        <td>Current Status</td>
+        <td>{{docModel.currentDoc.status}}</td>
+      </tr>
+      <tr ng-if="docModel.currentDoc.status == 'Verifying'">
+        <td>
+          <a class="btn btn-sm btn-download"
+              href="/doc/downloadRequest/{{docModel.currentDoc._id}}.csv"
+              target="_blank">
+            Download CSV
+          </a>
+          <a class="btn btn-sm btn-download"
+              href="/doc/downloadRequest/{{docModel.currentDoc._id}}.xls"
+              target="_blank">
+            Download EXCEL
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="col-lg-10 pull-right" ng-hide="docModel.currentRecords.length > 0">
-  <br><br><br><br><br><br>
-  <span class="fa fa-spin fa-spinner"></span>Loading...
-</div>
+
+<!-- field :file
+  field :filetype
+  field :noOfRecords
+  field :title
+  field :status
+  field :downloadRequest
+  field :columnToVerify
+  field :created_at -->

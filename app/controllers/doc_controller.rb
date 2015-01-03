@@ -20,7 +20,11 @@ class DocController < ApplicationController
     render :json => doc
   end
   def show
-    render :json => Document.find(params[:id]).file_records
+    doc = Document.includes(:file_records).find(params[:id])
+    doc[:active] = doc.file_records.where(:status => 'Active').count()
+    doc[:inactive] = doc.file_records.where(:status => 'InActive').count()
+    doc[:error] = doc.file_records.where(:status => 'Error').count()
+    render :json =>  doc
   end
   def destroy
     render :json => Document.find(params[:id]).delete

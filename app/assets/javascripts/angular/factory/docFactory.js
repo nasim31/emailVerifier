@@ -3,7 +3,7 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
   
   Docfactory.model = {
     files: undefined,
-    currentRecords: undefined
+    currentDoc: undefined
   }
   
   Docfactory.uploadFiles = function(){
@@ -40,7 +40,7 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
   Docfactory.getRecords = function(id){
     
     Doc.get(id).then(function(data){
-      Docfactory.model.currentRecords = data
+      Docfactory.model.currentDoc = data
     })
   }
 

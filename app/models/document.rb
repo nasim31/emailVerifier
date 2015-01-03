@@ -16,33 +16,60 @@ class Document
   def self.processDoc(docId)
     doc = Document.find(docId)
     file = File.join(Rails.root,"/public/",doc.file.url)
-    file = Roo::Excelx.new(file)
-    sheetOne = file.sheet(0)
     rowNum = 0
     header = []
     parsedRecords = 0;
-    sheetOne.each do |row|
-      if rowNum == 0
-        rowNum = 1
-        #Header
-        header = row
-        i = 0
-        insertingData = {}
-        header.each do |title|
-          i += 1
-          insertingData["column#{i}"] = title
+    if(doc.filetype == 'xlsx')
+      file = Roo::Excelx.new(file)
+      sheetOne = file.sheet(0)
+      sheetOne.each do |row|
+        if rowNum == 0
+          rowNum = 1
+          #Header
+          header = row
+          i = 0
+          insertingData = {}
+          header.each do |title|
+            i += 1
+            insertingData["column#{i}"] = title
+          end
+          doc.create_file_header(insertingData)
+          next
         end
-        doc.create_file_header(insertingData)
-        next
+        insertingData = {}
+        i = 0
+        row.each do |data|
+          i += 1
+          insertingData["column#{i}"] = data
+        end
+        parsedRecords += 1
+        doc.file_records.create(insertingData)
       end
-      insertingData = {}
-      i = 0
-      row.each do |data|
-        i += 1
-        insertingData["column#{i}"] = data
+    end
+    if(doc.filetype == 'dbf')
+      widgets = DBF::Table.new(file)
+      widgets.each do |record|
+        if(rowNum == 0)
+          rowNum = 1
+          binding.pry
+          header = record
+          i = 0
+          insertingData = {}
+          header.attributes.each do |key,value|
+            i += 1
+            insertingData["column#{i}"] = key
+          end
+          doc.create_file_header(insertingData)
+        end
+        insertingData = {}
+        i = 0
+        record.attributes.each do |key,value|
+          i += 1
+          insertingData["column#{i}"] = value
+        end
+        parsedRecords += 1
+        doc.file_records.create(insertingData)
       end
-      parsedRecords += 1
-      doc.file_records.create(insertingData)
     end
     doc.update_attributes(:status => "Parsed", :noOfRecords => parsedRecords)
     return true
