@@ -110,4 +110,14 @@ class Document
       end 
     end
   end
+
+  def self.updateStatus(docId)
+    doc = Document.includes(:file_records).find(docId)
+    parsedRecords = doc.file_records.where(:status => 'Active').count()
+    parsedRecords += doc.file_records.where(:status => 'InActive').count()
+    parsedRecords += doc.file_records.where(:status => 'Error').count()
+    if(doc.noOfRecords == parsedRecords)
+      doc.update_attributes(:status => "Completed")
+    end
+  end
 end

@@ -35,7 +35,7 @@
               PARSE FILE
             </a>
           </td>
-          <td ng-if="file.status == 'Verifying'" >
+          <td ng-if="file.status != 'Not started'" >
             <a href="/document/{{file._id}}" 
                class="btn btn-sm btn-download">
               View Status
@@ -48,7 +48,7 @@
             </a>
           </td>
 
-          <td ng-if="file.status == 'Verifying'" >
+          <td ng-if="file.status == 'Completed' || file.status == 'Verifying' " >
             <a class="btn btn-sm btn-download"
                 href="/doc/downloadRequest/{{file._id}}.csv"
                 target="_blank">

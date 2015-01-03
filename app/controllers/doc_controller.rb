@@ -1,9 +1,12 @@
 class DocController < ApplicationController
   def index
     documents = []
-    Document.includes(:file_header).each do |doc|
-       doc[:file_header] = doc.file_header
-       documents.push(doc)
+    Document.includes(:file_header,:file_records).each do |doc|
+      doc[:file_header] = doc.file_header
+      documents.push(doc)
+      if(doc.status == "Verifying")
+        Document.delay.updateStatus(doc._id)
+      end
     end
     render :json => documents
   end

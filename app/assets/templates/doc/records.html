@@ -37,7 +37,7 @@
         <td>Current Status</td>
         <td>{{docModel.currentDoc.status}}</td>
       </tr>
-      <tr ng-if="docModel.currentDoc.status == 'Verifying'">
+      <tr ng-if="docModel.currentDoc.status == 'Completed' || docModel.currentDoc.status == 'Verifying' " >
         <td>
           <a class="btn btn-sm btn-download"
               href="/doc/downloadRequest/{{docModel.currentDoc._id}}.csv"

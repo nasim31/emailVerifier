@@ -58,7 +58,6 @@
 }
 .main{
   background: #f6f6f6;
-  padding: 75px 20px 0;
 }
 .sidebarBtn{
   display: none;
@@ -104,10 +103,8 @@
 }
 #verifyContent{
   display: none;
-} 
-#downloadContent{
-  margin-top: 50px;
 }
+
 .verify table tr th, .download table tr th{
   border-bottom: 1px solid #ddd;
   font-family: 'ProximaNovaBold';

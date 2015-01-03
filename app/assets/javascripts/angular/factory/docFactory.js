@@ -38,7 +38,7 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
   }
 
   Docfactory.getRecords = function(id){
-    
+    Docfactory.model.currentDoc = undefined
     Doc.get(id).then(function(data){
       Docfactory.model.currentDoc = data
     })
