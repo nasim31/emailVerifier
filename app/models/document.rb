@@ -15,7 +15,6 @@ class Document
 
   def self.processDoc(docId)
     doc = Document.find(docId)
-    doc.update_attributes(:status => "Parsing")
     file = File.join(Rails.root,"/public/",doc.file.url)
     file = Roo::Excelx.new(file)
     sheetOne = file.sheet(0)
@@ -51,20 +50,23 @@ class Document
 
   def self.verifyRecords(docId)
     doc = Document.find(docId)
-    # updated = 0
+    updated = 0
     doc.file_records.each do |record|
-      # updated += 1
-      # if(updated == 10)
-      # end
-      begin
-        if EmailVerifier.check(record[doc.columnToVerify])
-          record.update_attributes(:status => "Active")
-        else
-          record.update_attributes(:status => "InActive")
-        end
-      rescue
-        record.update_attributes(:status => "Error")
+      updated += 1
+      Document.delay(run_at: updated.seconds.from_now).verifyNow(record._id)
+    end
+  end
+
+  def self.verifyNow(recordId)
+    record = FileRecord.includes(:document).find(recordId)
+    begin
+      if EmailVerifier.check(record[record.document.columnToVerify])
+        record.update_attributes(:status => "Active")
+      else
+        record.update_attributes(:status => "InActive")
       end
+    rescue
+      record.update_attributes(:status => "Error")
     end
   end
 

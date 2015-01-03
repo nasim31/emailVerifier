@@ -26,7 +26,9 @@ class DocController < ApplicationController
     render :json => Document.find(params[:id]).delete
   end
   def parseFile
-    Document.processDoc(params[:doc][:id])
+    doc = Document.find(params[:doc][:id])
+    doc.update_attributes(:status => "Parsing")
+    Document.delay.processDoc(params[:doc][:id])
     render :json => Document.find(params[:doc][:id])
   end
   def verifyRecords

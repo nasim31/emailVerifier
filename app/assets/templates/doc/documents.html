@@ -29,7 +29,8 @@
               : {{file.columnToVerify}}
             </span>
           </td>
-          <td ng-if="file.status == 'Not started'" >
+          <!-- <td ng-if="file.status == 'Not started'" > -->
+          <td>
             <a ng-click="parseFile(file)" 
                class="btn btn-sm btn-download">
               PARSE FILE
@@ -41,7 +42,8 @@
               View Records
             </a>
           </td> 
-          <td ng-if="file.status == 'Parsed'" >
+          <!-- <td ng-if="file.status == 'Parsed'" > -->
+          <td>
             <a class="btn btn-sm btn-download"
                 ng-click="verifyModel(file)">
               Start verifying

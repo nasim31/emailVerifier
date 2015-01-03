@@ -42,6 +42,8 @@ gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
 gem 'email_verifier'
 gem 'delayed_job_mongoid'
+gem 'dj_mon', git: 'https://github.com/akshayrawat/dj_mon.git', branch: 'master'
+gem "daemons"
 
 
 # Use ActiveModel has_secure_password
