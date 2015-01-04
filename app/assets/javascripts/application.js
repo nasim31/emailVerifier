@@ -34,6 +34,7 @@ $(document).ready(function(){
   var channel = $("#currentSession").val()
   console.log(channel);
   PrivatePub.subscribe("/"+channel, function(data, channel) {
-    console.log(data);
+    var ele = $("#"+data.addUp);
+    ele.html(parseInt(ele.html())+1)
   });
 })
