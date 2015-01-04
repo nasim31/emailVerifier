@@ -27,4 +27,13 @@
 //= require angular/common/resources
 //= require angular/factory/userFactory
 //= require angular/factory/docFactory
+//= require private_pub
 //= require_tree .
+
+$(document).ready(function(){
+  var channel = $("#currentSession").val()
+  console.log(channel);
+  PrivatePub.subscribe("/"+channel, function(data, channel) {
+    console.log(data);
+  });
+})

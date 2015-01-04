@@ -8,6 +8,9 @@ class DocController < ApplicationController
         Document.delay.updateStatus(doc._id)
       end
     end
+    if session[:session_id].nil?
+      session[:token] = "demkasdsajdnsa121n21jnijn212"
+    end
     render :json => documents
   end
   def create
@@ -41,7 +44,7 @@ class DocController < ApplicationController
   def verifyRecords
     doc = Document.find(params[:doc][:id])
     doc.update_attributes(:status => "Verifying",:columnToVerify => params[:doc][:field])
-    Document.verifyRecords(params[:doc][:id])
+    Document.verifyRecords(params[:doc][:id],session[:session_id])
     render :json => Document.find(params[:doc][:id])
   end
   def downloadRequest

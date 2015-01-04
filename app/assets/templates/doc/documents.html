@@ -41,7 +41,7 @@
               View Status
             </a>
           </td> 
-          <td ng-if="file.status == 'Parsed'" >
+          <td ng-if="file.status != 'Parsed'" >
             <a class="btn btn-sm btn-download"
                 ng-click="verifyModel(file)">
               Start verifying

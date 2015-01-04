@@ -75,16 +75,16 @@ class Document
     return true
   end
 
-  def self.verifyRecords(docId)
+  def self.verifyRecords(docId,session_id)
     doc = Document.find(docId)
     updated = 0
     doc.file_records.each do |record|
       updated += 1
-      Document.delay(run_at: updated.seconds.from_now).verifyNow(record._id)
+      Document.delay(run_at: updated.seconds.from_now).verifyNow(record._id,session_id)
     end
   end
 
-  def self.verifyNow(recordId)
+  def self.verifyNow(recordId,session_id)
     record = FileRecord.includes(:document).find(recordId)
     begin
       if EmailVerifier.check(record[record.document.columnToVerify])
@@ -95,6 +95,7 @@ class Document
     rescue
       record.update_attributes(:status => "Error")
     end
+    PrivatePub.publish_to "/#{session_id}", :docId => record.document._id, :status => record.status
   end
 
   def self.to_csv(options = {}, docId)
