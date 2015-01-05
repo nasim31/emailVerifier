@@ -51,7 +51,7 @@ class Document
       widgets.each do |record|
         if(rowNum == 0)
           rowNum = 1
-          binding.pry
+          # binding.pry
           header = record
           i = 0
           insertingData = {}
