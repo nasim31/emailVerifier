@@ -20,10 +20,7 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
       console.log(index);
       File.id = File._id;
       File.delete().then(function(){
-        console.log(index);
-        console.log(Docfactory.model.files)
         Docfactory.model.files.splice(index,1);
-        console.log(Docfactory.model.files)
       })
     }
   }
@@ -46,7 +43,7 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
 
   Docfactory.getRecords = function(id){
     Docfactory.model.currentDoc = undefined
-    Doc.get(id).then(function(data){
+    return Doc.get(id).then(function(data){
       Docfactory.model.currentDoc = data
     })
   }

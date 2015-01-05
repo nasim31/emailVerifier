@@ -29,11 +29,13 @@ class DocController < ApplicationController
     doc = Document.includes(:file_records).find(params[:id])
     doc[:active] = doc.file_records.where(:status => 'Active').count()
     doc[:inactive] = doc.file_records.where(:status => 'InActive').count()
-    doc[:error] = doc.file_records.where(:status => 'Error').count()
+    doc[:err] = doc.file_records.where(:status => 'Error').count()
     render :json =>  doc
   end
   def destroy
-    render :json => Document.find(params[:id]).delete
+    doc = Document.find(params[:id])
+    Document.abortJobs("VerifyingEmail#{doc._id}")
+    render :json => doc.delete
   end
   def parseFile
     doc = Document.find(params[:doc][:id])

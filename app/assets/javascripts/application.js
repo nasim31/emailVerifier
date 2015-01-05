@@ -18,6 +18,8 @@
 //= require angularjs/rails/resource
 //= require angular/extDirectives/devise
 //= require angular/extDirectives/readable-time.min
+//= require angular/extDirectives/pie-chart.min
+//= require angular/extDirectives/d3.min
 //= require angular/app
 //= require angular/common/resources
 //= require angular/factory/userFactory

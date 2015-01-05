@@ -1,1 +1,1 @@
-var myApp = angular.module('myApp',["ngRoute","Devise","rails","angular-loading-bar","readableTime"]);
+var myApp = angular.module('myApp',["ngRoute","Devise","rails","angular-loading-bar","readableTime","n3-pie-chart"]);
