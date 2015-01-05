@@ -15,6 +15,10 @@ myApp.controller('docController',
         Docfactory.parseFile(file);
       }
 
+      $scope.abortJob = function(file){
+        Docfactory.abortJob(file);
+      }
+
       $scope.verificationRequest = function(){
         $('#myModal').modal('hide')
         Docfactory.verificationRequest($scope.currentFile,$scope.selectedColumnToVerify)

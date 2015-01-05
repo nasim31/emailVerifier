@@ -29,6 +29,12 @@
               : {{file.columnToVerify}}
             </span>
           </td>
+          <td ng-if="file.status == 'Verifying'">
+            <a ng-click="abortJob(file)" 
+               class="btn btn-sm btn-download">
+              Abort Verifying
+            </a>
+          </td>
           <td ng-if="file.status == 'Not started'" >
             <a ng-click="parseFile(file)" 
                class="btn btn-sm btn-download">
@@ -41,7 +47,7 @@
               View Status
             </a>
           </td> 
-          <td ng-if="file.status == 'Parsed'" >
+          <td ng-if="file.status == 'Parsed' || file.status == 'Aborted'" >
             <a class="btn btn-sm btn-download"
                 ng-click="verifyModel(file)">
               Start verifying

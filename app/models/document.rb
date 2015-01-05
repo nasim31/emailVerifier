@@ -78,9 +78,9 @@ class Document
   def self.verifyRecords(docId,session_id)
     doc = Document.find(docId)
     updated = 0
-    doc.file_records.each do |record|
+    doc.file_records.where(:status => nil).each do |record|
       updated += 3
-      Document.delay(run_at: updated.seconds.from_now).verifyNow(record._id,session_id)
+      Document.delay(run_at: updated.seconds.from_now,:queue => "VerifyingEmail#{docId}").verifyNow(record._id,session_id)
     end
   end
 
@@ -120,5 +120,9 @@ class Document
     if(doc.noOfRecords == parsedRecords)
       doc.update_attributes(:status => "Completed")
     end
+  end
+
+  def self.abortJobs(queue)
+    Delayed::Job.where(:queue => queue).delete
   end
 end
