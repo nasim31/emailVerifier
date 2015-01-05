@@ -44,7 +44,7 @@ class DocController < ApplicationController
   def verifyRecords
     doc = Document.find(params[:doc][:id])
     doc.update_attributes(:status => "Verifying",:columnToVerify => params[:doc][:field])
-    Document.delay(:queue => 'VerifyRequest').verifyRecords(params[:doc][:id],current_user._id.to_s)
+    Document.delay(:queue => 'VerifyRequest').verifyRecords(params[:doc][:id],current_user._id)
     render :json => Document.find(params[:doc][:id])
   end
   def downloadRequest

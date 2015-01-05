@@ -34,6 +34,18 @@
         <td id="{{docModel.currentDoc._id}}Error">{{docModel.currentDoc.error}}</td>
       </tr>
       <tr>
+        <td>Total No of Records Checked:</td>
+        <td>
+          {{docModel.currentDoc.active+docModel.currentDoc.inactive+docModel.currentDoc.error}}
+        </td>
+      </tr>
+      <tr>
+        <td>Estimated completion time</td>
+        <td>
+          {{((docModel.currentDoc.noOfRecords-(docModel.currentDoc.active+docModel.currentDoc.inactive+docModel.currentDoc.error))*5)/3600 | number:2}} hour
+        </td>
+      </tr>
+      <tr>
         <td>Current Status</td>
         <td>{{docModel.currentDoc.status}}</td>
       </tr>
@@ -50,7 +62,14 @@
             Download EXCEL
           </a>
         </td>
+         <td ng-if="docModel.currentDoc.status == 'Verifying'">
+            <a ng-click="abortJob(file)" 
+               class="btn btn-sm btn-download">
+              Abort Verifying
+            </a>
+          </td>
       </tr>
+
     </tbody>
   </table>
 </div>
