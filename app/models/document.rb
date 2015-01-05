@@ -79,7 +79,7 @@ class Document
     doc = Document.find(docId)
     updated = 0
     doc.file_records.each do |record|
-      updated += 1
+      updated += 3
       Document.delay(run_at: updated.seconds.from_now).verifyNow(record._id,session_id)
     end
   end
