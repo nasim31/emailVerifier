@@ -9,12 +9,6 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-// require angular/extDirectives/autocomplete
-// require angular/extDirectives/jquery.dataTables
-// require angular/extDirectives/angular-datatables
-// require angular/extDirectives/ng-infinite-scroll
-// require angular/extDirectives/angular-validation
-// require angular/extDirectives/angular-validation-rule
 
 //= require jquery
 //= require jquery_ujs
@@ -23,6 +17,7 @@
 //= require angular-route
 //= require angularjs/rails/resource
 //= require angular/extDirectives/devise
+//= require angular/extDirectives/readable-time.min
 //= require angular/app
 //= require angular/common/resources
 //= require angular/factory/userFactory

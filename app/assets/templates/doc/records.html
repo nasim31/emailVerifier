@@ -42,7 +42,7 @@
       <tr>
         <td>Estimated completion time</td>
         <td>
-          {{((docModel.currentDoc.noOfRecords-(docModel.currentDoc.active+docModel.currentDoc.inactive+docModel.currentDoc.error))*5)/3600 | number:2}} hour
+          {{(docModel.currentDoc.noOfRecords-(docModel.currentDoc.active+docModel.currentDoc.inactive+docModel.currentDoc.error))*5 | readableTime}}
         </td>
       </tr>
       <tr>
