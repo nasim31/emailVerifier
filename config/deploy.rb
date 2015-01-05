@@ -2,9 +2,9 @@ require "rvm/capistrano"
 require "bundler/capistrano"
 require 'capistrano/ext/multistage'
 
-set :application, 'FundsInn'
+set :application, 'EmailVerifier'
 set :scm, :git
-set :repository, "git@github.com:pSenthil202/inn.git"
+set :repository, "git@github.com:pSenthil202/emailVerifier.git"
 set :user, "root"
 set :scm_passphrase, ""
 set :branch, "master"
