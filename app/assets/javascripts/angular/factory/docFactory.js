@@ -14,14 +14,16 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
   }
 
   Docfactory.delete  = function(File){
-    File.id = File._id;
     if(confirm("Are you sure?"))
     {
-      File.delete().then(function(data){
-        console.log(Docfactory.model.files);
-        var index = Docfactory.model.files.indexOf(data);
-        Docfactory.model.files.slice(index,1);
-        console.log(Docfactory.model.files);
+      var index = Docfactory.model.files.indexOf(File);
+      console.log(index);
+      File.id = File._id;
+      File.delete().then(function(){
+        console.log(index);
+        console.log(Docfactory.model.files)
+        Docfactory.model.files.splice(index,1);
+        console.log(Docfactory.model.files)
       })
     }
   }
