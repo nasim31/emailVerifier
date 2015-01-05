@@ -5,10 +5,6 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
     files: undefined,
     currentDoc: undefined
   }
-  
-  Docfactory.uploadFiles = function(){
-    console.log("Checking Upload file")
-  }
 
   Docfactory.getFiles = function(){
     console.log("Document");

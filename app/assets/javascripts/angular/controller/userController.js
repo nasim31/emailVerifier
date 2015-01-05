@@ -29,17 +29,22 @@ myApp.controller('userController',
       }
 
       $scope.uploadFile  = function(files) {
-        //Take the first selected file
-        for (var i = 0; i < files.length; i++) {
+        $scope.files = files
+        for (var i = 0; i < $scope.files.length; i++) {
           var fd = new FormData();
-          fd.append("file", files[i]);
+          $scope.files[i].status = "Uploading"
+          fd.append("file", $scope.files[i]);
+          fd.append("id",i);
           $http.post('/doc', fd, {
             withCredentials: true,
             headers: {'Content-Type': undefined },
             transformRequest: angular.identity
-          }).success( function(){
-            console.log("Success");
-          
+          }).success( function(data){
+            if(data.status == true) {
+              $scope.files[data.id].status = "Success";
+            } else {
+              $scope.files[data.id].status = "Error";
+            }
           }).error(function(){
             console.log("Failure");
           });

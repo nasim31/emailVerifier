@@ -10,13 +10,17 @@ myApp.factory('Userfactory', ["Auth", "$http", "$location", "$rootScope", "$q", 
   
   Userfactory.isLogged = function(){
     if(!Userfactory.model.active){
+      console.log("Current user check");
       return Auth.currentUser().then(function(user) {
         Userfactory.model.detail = user
         $rootScope.loggedUser = true
       }, function(error) {
         $rootScope.loggedUser = false;
       });
+    } else {
+      return Userfactory.model.active
     }
+
   }
 
   Userfactory.login = function(user) {

@@ -2,6 +2,25 @@
   <div class="sidebarBtn">
     <i class="fa fa-arrow-circle-o-left"></i>
   </div>
+  <table ng-show="files.length > 0" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>File Name</th>
+        <th>Size</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="file in files">
+        <td>{{file.name|uppercase}}</td>
+        <td>{{file.size|bytes}}</td>
+        <td>{{file.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/documents" class="btn btn-success"  ng-show="files.length > 0">
+    View all Documents.
+  </a>
   <div class="upload text-center" id="uploadArea" dropzone>
     
   </div>

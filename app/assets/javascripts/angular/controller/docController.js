@@ -3,6 +3,7 @@ myApp.controller('docController',
     function($scope,$location,Auth,$rootScope,$routeParams,$http,Userfactory,Docfactory) {
       
       $scope.userModel = Userfactory.model
+      
       Docfactory.getFiles();
       $scope.docModel = Docfactory.model
 

@@ -22,8 +22,11 @@ class DocController < ApplicationController
     doc.noOfRecords = 0
     doc.status = "Not started"
     doc.created_at = Time.now
-    doc.save
-    render :json => doc
+    if doc.save
+      render :json => {:status => true, :id => params[:id]}
+    else 
+      render :json => {:status => false, :id => params[:id]}
+    end
   end
   def show
     doc = Document.includes(:file_records).find(params[:id])

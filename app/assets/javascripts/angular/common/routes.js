@@ -59,19 +59,23 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
         });
       } else if ( $rootScope.loggedUser == true ) {
         authenticate(next);
+        console.log("Authenticate",next.login);
       } else if ( $rootScope.loggedUser == false) {
+        console.log("Not Logged",next.login);
         notLogged(next)
       }
     });
 
     function notLogged(next){
+      console.log("Not Logged",next.login);
       $rootScope.loggedUser = false;
       if ( next.login )  {
         $location.path( "/login" );
       }
     }
 
-    function authenticate(next){      
+    function authenticate(next){  
+      console.log("Logged",next.login);    
       $rootScope.loggedUser = true;
       // var noaccess = ["/assets/user/login.html",
       //                 "/assets/user/forgotPassword.html",
