@@ -10,8 +10,8 @@ class Document
   field :columnToVerify
   field :created_at
 
-  has_one :file_header
-  has_many :file_records
+  has_one :file_header, dependent: :destroy
+  has_many :file_records, dependent: :destroy
 
   def self.processDoc(docId)
     doc = Document.find(docId)
