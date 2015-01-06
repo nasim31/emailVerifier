@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post "doc/parseFile", :to => "doc#parseFile"
   post "doc/verifyRecords", :to => "doc#verifyRecords"
   get "doc/downloadRequest/:id", :to => "doc#downloadRequest"
+  post "doc/abortJob", :to => "doc#abortJob"
 
   mount DjMon::Engine => 'dj_mon'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,11 +5,8 @@ class DocController < ApplicationController
       doc[:file_header] = doc.file_header
       documents.push(doc)
       if(doc.status == "Verifying")
-        Document.delay.updateStatus(doc._id)
+        Document.delay(:queue => 'UpdatingStatus').updateStatus(doc._id)
       end
-    end
-    if session[:session_id].nil?
-      session[:token] = "demkasdsajdnsa121n21jnijn212"
     end
     render :json => documents
   end
@@ -32,22 +29,24 @@ class DocController < ApplicationController
     doc = Document.includes(:file_records).find(params[:id])
     doc[:active] = doc.file_records.where(:status => 'Active').count()
     doc[:inactive] = doc.file_records.where(:status => 'InActive').count()
-    doc[:error] = doc.file_records.where(:status => 'Error').count()
+    doc[:err] = doc.file_records.where(:status => 'Error').count()
     render :json =>  doc
   end
   def destroy
-    render :json => Document.find(params[:id]).delete
+    doc = Document.find(params[:id])
+    Document.abortJobs("VerifyingEmail#{doc._id}")
+    render :json => doc.delete
   end
   def parseFile
     doc = Document.find(params[:doc][:id])
     doc.update_attributes(:status => "Parsing")
-    Document.delay.processDoc(params[:doc][:id])
+    Document.delay(:queue => 'ParsingDoc').processDoc(params[:doc][:id])
     render :json => Document.find(params[:doc][:id])
   end
   def verifyRecords
     doc = Document.find(params[:doc][:id])
     doc.update_attributes(:status => "Verifying",:columnToVerify => params[:doc][:field])
-    Document.verifyRecords(params[:doc][:id],session[:session_id])
+    Document.delay(:queue => 'VerifyRequest').verifyRecords(params[:doc][:id],current_user._id)
     render :json => Document.find(params[:doc][:id])
   end
   def downloadRequest
@@ -60,12 +59,12 @@ class DocController < ApplicationController
         send_data Document.to_csv({:col_sep => "\t"},params[:id])
       }
     end
-    # doc = Document.find(params[:doc][:id])
-    # doc.update_attributes(:downloadRequest => true)
-    # Document.downloadRequest(params[:doc][:id])
-    # render :json => doc
   end
-
+  def abortJob
+    doc = Document.find(params[:doc][:id])
+    doc.update_attributes(:status => "Aborted")
+    Document.abortJobs("VerifyingEmail#{doc._id}")
+  end
   def to_json(*args)
     super(args.merge({:include => :file_header}))
   end

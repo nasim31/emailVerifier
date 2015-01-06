@@ -1,5 +1,5 @@
 <div class="download col-lg-10 pull-right" id="downloadContent">
-  <div class="panel">
+  <div class="panel" ng-show="docModel.files.length > 0">
     <table class="table downloadtable">
       <thead>
         <tr>
@@ -23,6 +23,12 @@
               : {{file.columnToVerify}}
             </span>
           </td>
+          <td ng-if="file.status == 'Verifying'">
+            <a ng-click="abortJob(file)" 
+               class="btn btn-sm btn-download">
+              Abort Verifying
+            </a>
+          </td>
           <td ng-if="file.status == 'Not started'" >
             <a ng-click="parseFile(file)" 
                class="btn btn-sm btn-download">
@@ -35,7 +41,7 @@
               View Status
             </a>
           </td> 
-          <td ng-if="file.status == 'Parsed'" >
+          <td ng-if="file.status == 'Parsed' || file.status == 'Aborted'" >
             <a class="btn btn-sm btn-download"
                 ng-click="verifyModel(file)">
               Start verifying
@@ -62,6 +68,12 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="alert alert-info" ng-hide="docModel.files.length > 0">
+    No documents found.
+    <a href="/dashboard" class="btn btn-primary btn-sm">
+      Upload Now
+    </a>
   </div>
 </div>
 

@@ -10,8 +10,8 @@ class Document
   field :columnToVerify
   field :created_at
 
-  has_one :file_header
-  has_many :file_records
+  has_one :file_header, dependent: :destroy
+  has_many :file_records, dependent: :destroy
 
   def self.processDoc(docId)
     doc = Document.find(docId)
@@ -51,7 +51,7 @@ class Document
       widgets.each do |record|
         if(rowNum == 0)
           rowNum = 1
-          binding.pry
+          # binding.pry
           header = record
           i = 0
           insertingData = {}
@@ -78,9 +78,9 @@ class Document
   def self.verifyRecords(docId,session_id)
     doc = Document.find(docId)
     updated = 0
-    doc.file_records.each do |record|
-      updated += 1
-      Document.delay(run_at: updated.seconds.from_now).verifyNow(record._id,session_id)
+    doc.file_records.where(:status => nil).each do |record|
+      updated += 3
+      Document.delay(run_at: updated.seconds.from_now,:queue => "VerifyingEmail#{docId}").verifyNow(record._id,session_id)
     end
   end
 
@@ -120,5 +120,9 @@ class Document
     if(doc.noOfRecords == parsedRecords)
       doc.update_attributes(:status => "Completed")
     end
+  end
+
+  def self.abortJobs(queue)
+    Delayed::Job.where(:queue => queue).delete
   end
 end

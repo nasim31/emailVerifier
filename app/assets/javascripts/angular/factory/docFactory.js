@@ -14,28 +14,36 @@ myApp.factory('Docfactory', ["Auth", "$http", "$location", "$rootScope", "$q", "
   }
 
   Docfactory.delete  = function(File){
-    File.id = File._id;
     if(confirm("Are you sure?"))
     {
-      File.delete().then(function(data){
-        console.log(Docfactory.model.files);
-        var index = Docfactory.model.files.indexOf(data);
-        Docfactory.model.files.slice(index,1);
-        console.log(Docfactory.model.files);
+      var index = Docfactory.model.files.indexOf(File);
+      console.log(index);
+      File.id = File._id;
+      File.delete().then(function(){
+        Docfactory.model.files.splice(index,1);
       })
     }
   }
 
   Docfactory.parseFile = function(file){
     Docfactory.changeStatus(file,"Parsing");
+    var index = Docfactory.model.files.indexOf(file);
     Doc.$post('/doc/parseFile',{"id":file._id}).then(function(data){
+       Docfactory.model.files[index] = data
+    })
+  }
+
+  Docfactory.abortJob = function(file){
+    Docfactory.changeStatus(file,"Aborted");
+    var index = Docfactory.model.files.indexOf(file);
+    Doc.$post('/doc/abortJob',{"id":file._id}).then(function(data){
        Docfactory.model.files[index] = data
     })
   }
 
   Docfactory.getRecords = function(id){
     Docfactory.model.currentDoc = undefined
-    Doc.get(id).then(function(data){
+    return Doc.get(id).then(function(data){
       Docfactory.model.currentDoc = data
     })
   }

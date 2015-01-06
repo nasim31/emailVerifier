@@ -44,9 +44,9 @@
         <li class="sideTab" id="downloadTab"><a href="#"><img src="assets/download.png"> Download</a></li>
       </ul>
     </div>
-    <%= subscribe_to "/#{session[:session_id]}" %>
+    <%= subscribe_to current_user._id %>
     <%= yield %>
-    <input type="hidden" id="currentSession" value="<%=session[:session_id]%>">
+    <input type="hidden" id="currentSession" value="<%=current_user._id%>">
     </div>
   </div>
 
