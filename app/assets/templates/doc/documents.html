@@ -3,23 +3,17 @@
     <table class="table downloadtable">
       <thead>
         <tr>
-          <th>Delete</th>
-          <th>List Name</th>
-          <th>File Type</th>
+          <th>S.No</th>
+          <th>File Name</th>
           <th>No of Records</th>
-          <th>Status</th>
+          <th>File Status</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="file in docModel.files">
-          <td>
-            <a ng-click="delete(file)" class="btn btn-danger">
-              <span class="fa fa-trash"></span>
-            </a>
-          </td>
           <td>{{file.title|uppercase}}</td>
-          <td>{{file.filetype}}</td>
           <td>{{file.noOfRecords}}</td>
           <td>
             <span class="fa fa-spin fa-spinner" 
@@ -58,6 +52,11 @@
                 href="/doc/downloadRequest/{{file._id}}.xls"
                 target="_blank">
               Download EXCEL
+            </a>
+          </td>
+          <td>
+            <a ng-click="delete(file)" class="btn btn-danger">
+              <span class="fa fa-trash"></span>
             </a>
           </td>
         </tr>

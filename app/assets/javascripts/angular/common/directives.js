@@ -7,6 +7,7 @@ myApp.directive("dropzone", function() {
         evt.preventDefault();
         evt.stopPropagation();
         elem.addClass("dragOver");
+        $(".upload").addClass("overlay");
       }, false);
 
       elem[0].addEventListener('dragenter', function(evt) {
@@ -14,6 +15,7 @@ myApp.directive("dropzone", function() {
         evt.stopPropagation();
         console.log("Drag Enter");
         elem.addClass("dragOver");
+       $(".upload").addClass("overlay");
       }, false);
 
       elem[0].addEventListener('dragleave', function(evt) {
@@ -21,6 +23,7 @@ myApp.directive("dropzone", function() {
           evt.stopPropagation();
           console.log("Drag Leave");
           elem.removeClass("dragOver");
+          $(".upload").removeClass("overlay");
       }, false);
 
       elem[0].addEventListener('drop', function(evt) {

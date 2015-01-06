@@ -2,6 +2,8 @@
   background: #398edb;
   padding: 0 19px;
   border-top: 4px solid #2980b9;
+  margin: 0;
+  border-radius: 0;
 }
 #navbar .nav li a{
   color: #fff;
@@ -19,7 +21,7 @@
   background: #34495e;
   padding: 0;
   position: fixed;
-  top: 51px;
+  top: 55px;
   bottom: 0;
   left: 0;
   z-index: 1000;
@@ -63,7 +65,6 @@
   display: none;
 }
 .upload{
-  border: 3px #5c5c5c dashed;
   width: 50%;
   margin: 135px auto;
   min-height: 300px;
@@ -71,7 +72,7 @@
   color: #5c5c5c;
   font-family: 'ProximaNovaRegular';
   border-radius: 3px;
-  background: #fff
+/*  background: #fff*/
 }
 .upload img{
   margin-bottom: 20px;
@@ -97,10 +98,11 @@
   outline: none;
 }
 .panel{
-  padding: 0px 25px 15px; 
+  padding: 50px 25px 15px;
   margin-top: 30px;
   border: 1px solid #ddd;
 }
+
 #verifyContent{
   display: none;
 }
@@ -169,13 +171,14 @@
 .btn-download:focus, .btn-download:hover, .btn-download:active:focus{
   outline: none;
 }
+
 @media only screen and (min-width: 992px) and (max-width: 1024px){
   .sidebar .sideTab a img{
     padding: 0 12px;
   }
-}
-@media 
-only screen and (max-width: 991px),
+} 
+
+@media only screen and (max-width: 991px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
   /* Force table to not be like tables anymore */
@@ -263,9 +266,23 @@ only screen and (max-width: 991px),
 
 
 /*Additional CSS*/
-.dragOver {
-    border: 2px solid green;
+.maincontent {
+  margin: 20px 0;
+  border: 3px #5c5c5c dashed;
 }
+
+.overlay { 
+    border: 2px solid #fefefe;
+    border-radius: 50%;
+    color: #fff !important;
+    height: 400px;
+}
+.dragOver  {
+  -webkit-transition: width 2s;
+  transition: width 2s;
+  background-color: rgba(0, 0, 0,0.8);
+}
+
 #loading-bar {
   z-index:10000;
   background-color: #fff;
