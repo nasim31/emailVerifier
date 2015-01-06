@@ -4,12 +4,25 @@
     <div class="sidebarBtn">
       <i class="fa fa-arrow-circle-o-left"></i>
     </div>
-    <table ng-show="files.length > 0" class="table table-bordered">
+    <div class="uploadFiles" ng-show="files.length > 0">
+      <div ng-repeat="file in files" class="col-lg-2 col-md-2 col-sm-3 col-xs-6 uploadedFiles text-center">
+        <div class="fileicon">
+          <a href="/documents">
+            <i class="fa fa-file"></i>
+            <div class="check"><i class="fa fa-check"></i></div>
+          </a>
+        </div>
+
+        {{file.name|uppercase}}
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <!-- <table ng-show="files.length > 0" class="table table-bordered">
     <thead>
       <tr>
         <th>File Name</th>
         <th>Size</th>
-        <th>Status</th>
+        <th>Status <i class="fa fa-file"></i></th>
       </tr>
     </thead>
     <tbody>
@@ -19,10 +32,10 @@
         <td>{{file.status}}</td>
       </tr>
     </tbody>
-    </table>
-    <a href="/documents" class="btn btn-success"  ng-show="files.length > 0">
+    </table> -->
+    <!-- <a href="/documents" class="btn btn-success"  ng-show="files.length > 0">
     View all Documents.
-    </a>
+    </a> -->
     <div class="sidebarBtn"><i class="fa fa-arrow-circle-o-left"></i></div>
     <div class="upload text-center" id="uploadArea">
       <img src="assets/upload2.png">

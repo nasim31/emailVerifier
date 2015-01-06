@@ -2,19 +2,15 @@
   <table class="table table-hover">
     <tbody>
       <tr>
-        <td>Title</td>
+        <td>File Name</td>
         <td>{{docModel.currentDoc.title}}</td>
       </tr>
       <tr>
-        <td>File Type</td>
-        <td>{{docModel.currentDoc.filetype}}</td>
-      </tr>
-      <tr>
-        <td>No Of Records Parsed</td>
+        <td>No Of Records To Be Verified</td>
         <td>{{docModel.currentDoc.noOfRecords}}</td>
       </tr>
       <tr>
-        <td>Last chosen column to Verify</td>
+        <td>Column Chosen To Verify</td>
         <td>{{docModel.currentDoc.columnToVerify}}</td>
       </tr>
       <tr>
@@ -40,7 +36,7 @@
         </td>
       </tr>
       <tr>
-        <td>Estimated completion time</td>
+        <td>Estimated Completion Time</td>
         <td>
           {{(docModel.currentDoc.noOfRecords-(docModel.currentDoc.active+docModel.currentDoc.inactive+docModel.currentDoc.err))*5 | readableTime}}
         </td>
