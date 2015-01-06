@@ -270,21 +270,51 @@
   margin: 20px 0;
   border: 3px #5c5c5c dashed;
   padding: 25px;
+  background: #f6f6f6;
 }
 
 .overlay { 
-    border: 2px solid #fefefe;
+    border: 2px solid #fff;
     border-radius: 50%;
     color: #fff !important;
     height: 400px;
+    background: #34495e;
 }
 .dragOver  {
   -webkit-transition: width 2s;
   transition: width 2s;
-  background-color: rgba(0, 0, 0,0.8);
+  background-color: rgba(252, 246, 180, 0.43);
 }
 
 #loading-bar {
   z-index:10000;
   background-color: #fff;
+}
+.uploadFiles {
+  padding-top: 20px; 
+}
+.uploadedFiles {
+  padding-bottom: 20px;
+  position: relative;
+}
+.fileicon {
+  padding: 0 0 10px;
+}
+.fileicon i {
+  font-size: 110px;
+  color: #34495e;
+}
+.check {
+  top: 30%;
+  left: 40%;
+  position: absolute;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.check i { 
+  color: #fff; 
+  font-size: 18px;
+  line-height: 27px;
 }
