@@ -33,7 +33,7 @@
 </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3 col-md-2 sidebar">
+    <div class="col-sm-3 col-md-2 sidebar" ng-show="loggedUser">
       <ul class="nav nav-sidebar">
         <li class="active sideTab" id="uploadTab">
           <a href="/dashboard">
@@ -47,7 +47,7 @@
 
     <%= yield %>
     <% unless current_user.nil? %>
-      <%= subscribe_to current_user._id %>
+      <%= subscribe_to "/#{current_user._id}" %>
       <input type="hidden" id="currentSession" value="<%=current_user._id%>">
     <% end %>
     </div>

@@ -43,7 +43,7 @@
     /**
      * Set to true if 401 interception of the provider is not desired
      */
-    var ignoreAuth = false;
+    var ignoreAuth = true;
     /**
      * The parsing function used to turn a $http
      * response into a "user".

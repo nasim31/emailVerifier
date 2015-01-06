@@ -9,7 +9,9 @@ class Document
   field :downloadRequest
   field :columnToVerify
   field :created_at
-
+  field :user_id
+  
+  belongs_to :user
   has_one :file_header, dependent: :destroy
   has_many :file_records, dependent: :destroy
 
@@ -95,7 +97,7 @@ class Document
     rescue
       record.update_attributes(:status => "Error")
     end
-    PrivatePub.publish_to "/#{session_id}", :addUp => "#{record.document._id}#{record.status}"
+    PrivatePub.publish_to "/#{session_id}", :addUp => "#{record.document._id}_#{record.status}"
   end
 
   def self.to_csv(options = {}, docId)

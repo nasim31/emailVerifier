@@ -29,9 +29,19 @@
 
 $(document).ready(function(){
   var channel = $("#currentSession").val()
-  console.log(channel);
   PrivatePub.subscribe("/"+channel, function(data, channel) {
     var ele = $("#"+data.addUp);
     ele.html(parseInt(ele.html())+1)
+    
+    var scope = angular.element($("#"+data.addUp)).scope()
+    var status = data.addUp.split('_')[1]
+    scope.$apply(function(){
+      if(status == "Active")
+        scope.data[0].value += 1;
+      if(status == "InActive")
+        scope.data[1].value += 1;
+      if(status == "Error")
+        scope.data[2].value += 1;
+    });
   });
 })

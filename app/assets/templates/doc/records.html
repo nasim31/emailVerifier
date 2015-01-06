@@ -19,15 +19,15 @@
       </tr>
       <tr>
         <td>No of Active Records:</td>
-        <td id="{{docModel.currentDoc._id}}Active">{{docModel.currentDoc.active}}</td>
+        <td id="{{docModel.currentDoc._id}}_Active">{{docModel.currentDoc.active}}</td>
       </tr>
       <tr>
         <td>No of InActive Records:</td>
-        <td id="{{docModel.currentDoc._id}}InActive">{{docModel.currentDoc.inactive}}</td>
+        <td id="{{docModel.currentDoc._id}}_InActive">{{docModel.currentDoc.inactive}}</td>
       </tr>
       <tr>
         <td>No of Error Records:</td>
-        <td id="{{docModel.currentDoc._id}}Err">{{docModel.currentDoc.err}}</td>
+        <td id="{{docModel.currentDoc._id}}_Error">{{docModel.currentDoc.err}}</td>
       </tr>
       <tr>
         <td>Total No of Records Checked:</td>
@@ -59,7 +59,7 @@
           </a>
         </td>
          <td ng-if="docModel.currentDoc.status == 'Verifying'">
-            <a ng-click="abortJob(file)" 
+            <a ng-click="/documents" 
                class="btn btn-sm btn-download">
               Abort Verifying
             </a>
