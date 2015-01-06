@@ -46,7 +46,7 @@ class DocController < ApplicationController
     doc = Document.find(params[:id])
     Document.abortJobs("VerifyingEmail#{doc._id}")
     doc.update_attributes(:status => "Deleting")
-    doc.delay.delete
+    doc.delay(:queue => 'DeletingDoc').delete
     render :json => true
   end
   def parseFile

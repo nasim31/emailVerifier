@@ -30,18 +30,24 @@
 $(document).ready(function(){
   var channel = $("#currentSession").val()
   PrivatePub.subscribe("/"+channel, function(data, channel) {
-    var ele = $("#"+data.addUp);
-    ele.html(parseInt(ele.html())+1)
+    // var ele = $("#"+data.addUp);
+    // ele.html(parseInt(ele.html())+1)
     
     var scope = angular.element($("#"+data.addUp)).scope()
     var status = data.addUp.split('_')[1]
     scope.$apply(function(){
-      if(status == "Active")
+      if(status == "Active") {
+        scope.docModel.currentDoc.active += 1
         scope.data[0].value += 1;
-      if(status == "InActive")
+      }
+      if(status == "InActive") {
+        scope.docModel.currentDoc.inactive += 1
         scope.data[1].value += 1;
-      if(status == "Error")
+      }
+      if(status == "Error") {
+        scope.docModel.currentDoc.err += 1
         scope.data[2].value += 1;
+      }
     });
   });
 })
