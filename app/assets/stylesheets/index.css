@@ -1,0 +1,182 @@
+body { 
+	font-family: 'ProximaNovaRegular';
+	font-size: 14px;
+}
+#header {
+	min-height: 100vh;
+}
+.headermenu {
+	background: #345e95;
+	border-radius: 0;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+.headermenu a {
+	color: #fff;
+}
+.navbar-nav>li>a:hover, .navbar-nav>li>a:active, .navbar-nav>li>a:focus {
+	background: transparent !important;
+}
+.fixed {
+	position: fixed;
+	top:0; 
+	left:0;
+	width: 100%; 
+	z-index: 1000;
+	border-radius: 0px;
+}
+.icon-bar {
+	background: #fff;
+}
+.logo  {
+	font-size: 24px;
+	font-weight: normal;
+}
+#banner {
+	padding: 107px 0 0;
+	box-shadow: inset 0 -5px 12px rgba(50, 50, 50, 0.25);
+	background: linear-gradient(-45deg, #32609f 0%, #3e70b5 100%);
+}
+#banner h1 {
+	margin: 40px 0 60px 0;
+	font-size: 38px;
+	color: #fff;
+	text-align: center;
+}
+.slider {
+	background: url("../images/bk-banner.png") no-repeat;
+	background-size: 100%;
+}
+.slider .carousel-inner {
+	width: 79%;
+}
+.slider .item {
+	padding: 26px 0 0 7px;
+}
+.slider .item img {
+	width: 567px;
+}
+.login {
+	border-radius: 6px;
+	background: #325b93;
+	padding: 20px;
+	margin-top: 20px;
+}
+.login input[type="email"], .login input[type="password"] {
+	border-radius: 4px;
+	background: #fff;
+	border: #cacaca 1px solid;
+	padding: 12px;
+	font-size: 13px;
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-appearance: none;
+	margin: 0;
+}
+.login input[type="submit"] {
+	background: #40c19e !important;
+	border: none;
+	color: #fff;
+	padding: 18px 25px !important;
+	width: 100%;
+	font-size: 18px;
+	border-radius: 4px;
+	font-weight: 600;
+}
+.fields {
+	margin-bottom: 20px;
+}
+.subtext {
+	font-size: 22px;
+	text-align: center;
+}
+#feature {
+	padding: 70px 0 30px;
+	min-height: 100vh;
+}
+.features p {
+	color: #4b4b4b;
+	font-size: 18px;
+	line-height: 1.8;
+}
+#price {
+	padding: 70px 0 30px;
+	min-height: 100vh;
+}
+.price {
+	padding: 30px 0 0;
+}
+.prices {
+	padding: 0;
+	border: 1px solid #cacaca;
+	border-radius: 3px;
+	min-height: 188px;
+	margin: 0 19px 10px;
+}
+.prices h3 {
+	margin: 0;
+	padding: 10px 0;
+	font-size: 21px;
+	border-bottom: 1px solid #cacaca;
+	background: #3e70b5;
+	color: #fff;
+	border-radius: 3px 3px 0 0;
+}
+.rate {
+	padding: 15px 15px 7px;
+	font-size: 15px;
+	color: #939393;
+	line-height: 1.2;
+	border-bottom: 1px solid #cacaca;
+}
+.rate p {
+	margin: 0 0 5px;
+}
+.rate span {
+	font-size: 30px;
+	color: #000;
+}
+.pricetext {
+	padding: 15px;
+}
+
+#footer {
+	padding: 8px 0;
+	background: #464646;
+}
+.copyright {
+	padding: 5px 0 0;
+}
+.copyright, .copyright a {
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+	vertical-align: bottom;
+}
+.copyright a { margin-left: 10px;}
+.sociallink a {
+	margin: 6px 5px 0;
+	color: #fff;
+	font-size: 16px;
+	background: #404040;
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	text-align: center;
+	line-height: 35px;
+	border-radius: 50%;
+}
+
+@media screen and (max-width: 767px) {
+	.prices {
+		margin: 0 auto 20px;
+	}
+	.pull-left, .pull-right {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+}
