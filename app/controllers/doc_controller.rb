@@ -3,6 +3,11 @@ class DocController < ApplicationController
     documents = []
     Document.includes(:file_header,:file_records).each do |doc|
       doc[:file_header] = doc.file_header
+      unless doc[:columnToVerify].nil?
+        doc[:columnToVerify] = doc.file_header[doc[:columnToVerify]]
+      else
+        doc[:columnToVerify] = "Not Choosed"
+      end
       documents.push(doc)
       if(doc.status == "Verifying")
         Document.delay(:queue => 'UpdatingStatus').updateStatus(doc._id)
@@ -26,7 +31,12 @@ class DocController < ApplicationController
     end
   end
   def show
-    doc = Document.includes(:file_records).find(params[:id])
+    doc = Document.includes(:file_header,:file_records).find(params[:id])
+    unless doc[:columnToVerify].nil?
+      doc[:columnToVerify] = doc.file_header[doc[:columnToVerify]]
+    else
+      doc[:columnToVerify] = "Not Choosed"
+    end
     doc[:active] = doc.file_records.where(:status => 'Active').count()
     doc[:inactive] = doc.file_records.where(:status => 'InActive').count()
     doc[:err] = doc.file_records.where(:status => 'Error').count()
