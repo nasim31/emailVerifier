@@ -1,6 +1,6 @@
 <div class="download col-lg-10 pull-right" id="downloadContent">
   <div class="panel" ng-show="docModel.files.length > 0">
-    <table class="table downloadtable">
+    <table class="table downloadtable" cellspacing="5">
       <thead>
         <tr>
           <th>S.No</th>
@@ -13,15 +13,16 @@
       </thead>
       <tbody>
         <tr ng-repeat="file in docModel.files">
+          <td></td>
           <td>{{file.title|uppercase}}</td>
           <td>{{file.noOfRecords}}</td>
           <td>
             <span class="fa fa-spin fa-spinner" 
                   ng-show="file.status == 'Verifying'"></span>
             {{file.status}}
-            <span ng-show="file.status == 'Verifying'">
+            <!-- <span ng-show="file.status == 'Verifying'">
               : {{file.columnToVerify}}
-            </span>
+            </span> -->
           </td>
           <td ng-if="file.status == 'Verifying'">
             <a ng-click="abortJob(file)" 

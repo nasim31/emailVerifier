@@ -269,6 +269,7 @@
 .maincontent {
   margin: 20px 0;
   border: 3px #5c5c5c dashed;
+  padding: 25px;
 }
 
 .overlay { 
