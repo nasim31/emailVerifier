@@ -95,7 +95,7 @@ class Document
     rescue
       record.update_attributes(:status => "Error")
     end
-    PrivatePub.publish_to "/#{session_id}", :addUp => "#{record.document._id}#{record.status}"
+    PrivatePub.publish_to "/#{session_id}", :addUp => "#{record.document._id}_#{record.status}"
   end
 
   def self.to_csv(options = {}, docId)

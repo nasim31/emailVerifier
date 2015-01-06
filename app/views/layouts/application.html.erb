@@ -47,7 +47,7 @@
 
     <%= yield %>
     <% unless current_user.nil? %>
-      <%= subscribe_to current_user._id %>
+      <%= subscribe_to "/#{current_user._id}" %>
       <input type="hidden" id="currentSession" value="<%=current_user._id%>">
     <% end %>
     </div>
