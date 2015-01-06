@@ -50,24 +50,22 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
  ["$rootScope", "$location", "$route", "Auth", "Userfactory", "$timeout", function($rootScope, $location, $route,Auth,Userfactory,$timeout) {
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if($rootScope.loggedUser === undefined) {
-        Userfactory.isLogged().then(
-        function(user) {
-          authenticate(next);
-        }, 
-        function(error) {
-          notLogged(next)
+        Userfactory.isLogged().then(function(){
+          if($rootScope.loggedUser == true) {
+            authenticate(next);
+          }
+          if($rootScope.loggedUser == false) {
+            notLogged(next)
+          }
         });
-      } else if ( $rootScope.loggedUser == true ) {
+      } else if($rootScope.loggedUser == true) {
         authenticate(next);
-        console.log("Authenticate",next.login);
       } else if ( $rootScope.loggedUser == false) {
-        console.log("Not Logged",next.login);
         notLogged(next)
       }
     });
 
     function notLogged(next){
-      console.log("Not Logged",next.login);
       $rootScope.loggedUser = false;
       if ( next.login )  {
         $location.path( "/login" );
@@ -75,15 +73,7 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
     }
 
     function authenticate(next){  
-      console.log("Logged",next.login);    
       $rootScope.loggedUser = true;
-      // var noaccess = ["/assets/user/login.html",
-      //                 "/assets/user/forgotPassword.html",
-      //                 "/assets/user/register.html"]
-      
-      // if($.inArray(next.$$route.templateUrl,noaccess) != -1) {
-      //   $location.path('/dashboard')
-      // }
       if ( !next.login )  {
         $location.path( "/dashboard" );
       }

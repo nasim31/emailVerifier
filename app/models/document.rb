@@ -9,7 +9,9 @@ class Document
   field :downloadRequest
   field :columnToVerify
   field :created_at
-
+  field :user_id
+  
+  belongs_to :user
   has_one :file_header, dependent: :destroy
   has_many :file_records, dependent: :destroy
 

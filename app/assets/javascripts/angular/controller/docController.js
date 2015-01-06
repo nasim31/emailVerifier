@@ -47,7 +47,7 @@ myApp.controller('docController',
 
       if($routeParams.id !== undefined){
         Docfactory.getRecords($routeParams.id).then(function(){
-          $scope.options = {thickness: 50};
+          $scope.options = {thickness: 75};
           $scope.data = [
             {label: "Active", value: $scope.docModel.currentDoc.active,color: "#00ff00"},
             {label: "In Active", value: $scope.docModel.currentDoc.inactive, color: "rgb(0, 0, 255)"},

@@ -1,7 +1,7 @@
 class DocController < ApplicationController
   def index
     documents = []
-    Document.includes(:file_header,:file_records).each do |doc|
+    current_user.documents.includes(:file_header,:file_records).each do |doc|
       doc[:file_header] = doc.file_header
       unless doc[:columnToVerify].nil?
         doc[:columnToVerify] = doc.file_header[doc[:columnToVerify]]
@@ -16,7 +16,7 @@ class DocController < ApplicationController
     render :json => documents
   end
   def create
-    doc = Document.new()
+    doc = current_user.documents.new()
     doc.file = params[:file]
     title = params[:file].original_filename.split(".")
     doc.title = title[0]
@@ -45,7 +45,9 @@ class DocController < ApplicationController
   def destroy
     doc = Document.find(params[:id])
     Document.abortJobs("VerifyingEmail#{doc._id}")
-    render :json => doc.delete
+    doc.update_attributes(:status => "Deleting")
+    doc.delay.delete
+    render :json => true
   end
   def parseFile
     doc = Document.find(params[:doc][:id])
