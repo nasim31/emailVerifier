@@ -1,0 +1,81 @@
+.reviewPanels{
+ margin-top: 60px;
+}
+
+.reviewPanelContainer, .reviewPanelContainerFull{
+ margin: 30px 0;
+ background-color: #fff;
+}
+
+.reviewPanelContainer p{
+ margin-top: 10px;
+}
+
+.redMedFont{
+ font-size: 16px;
+ color: #CE4238;
+ margin: 10px 0;
+}
+.blackSmallFont{
+ font-size: 14px;
+ color: #212121;
+ margin: 10px 0;
+}
+
+.postMsg{
+ font-size: 16px; 
+}
+
+.postMsgFull{
+ font-size: 16px; 
+ min-height: 180px;
+ padding: 20px 35px;
+ border-left: 1px solid #eee;
+}
+
+.postMsg p{
+ overflow: hidden;
+ text-overflow: ellipsis;
+ display: -webkit-box;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp: 3;
+ line-height: 1.4;
+}
+
+.viewMore{
+ margin-right: 15px;
+ text-align: right;
+}
+
+.viewMore a, .viewMore a:hover{
+ color: #CE4238;
+ font-size: 14px;
+ text-decoration: none;
+}
+
+@media screen and (min-width: 992px){
+ .reviewPanelContainer{
+  height: 220px;
+ }
+
+ .postData{
+  padding: 35px;
+  height: 220px;
+ }
+ .postMsg{
+  height: 220px;
+  padding: 20px 35px;
+  border-left: 1px solid #eee;
+ }
+}
+
+@media screen and (min-width: 320px) and (max-width: 991px){
+ .postMsg, .postData, .postMsgFull{
+  text-align: center;
+  margin-top: 25px;
+ }
+
+ .postData{
+  border-bottom: 1px solid #eee;
+ }
+}

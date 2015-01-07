@@ -1,0 +1,86 @@
+`html, body {
+ height: 100%;
+ font-family: 'ProximaNovaRegular';
+ background-color: #F4F4F4;
+}
+
+
+.navbarOne{
+ background-color: #fff;
+ padding: 15px 0;
+ border-top: 4px solid #CE4238;
+ font-size: 18px;
+}
+
+.navbar-toggle,.navbar-toggle:hover,.navbar-toggle:active,.navbar-toggle:focus{
+ background-color: transparent !important;
+ border: 0;
+}
+
+.navbar-toggle > span{
+ background-color: #CE4238 !important;
+}
+
+.navbarOne a{
+ color: #212121 !important;
+}
+
+.navbarOne li{
+ border-bottom: 4px solid #fff;
+}
+
+.navbarOne li:hover, .navbarOne li:focus,.navbarOne .active{
+ cursor: pointer;
+ background-color: transparent;
+ border-bottom: 4px solid #CE4238;
+}
+
+.navbarOne .active a, .navbarOne .open a{
+ background-color: transparent !important;
+}
+
+.navbar-brand{
+ font-size: 24px;
+}
+
+
+#wrapper {
+ min-height: 100%;
+ height: auto !important;
+ height: 100%;
+}
+
+#footer, #push {
+ margin-top: 40px;
+ background-color: #202020;
+ text-align: center;
+}
+
+
+.copyrights{
+ margin-top: 25px;
+ font-size: 16px;
+}
+
+/*Common elements*/
+
+.searchBox input{
+ position: relative;
+ top: 25px;
+ padding: 25px;
+ padding-left: 60px;
+ width: 97%;
+ margin: 0 auto;
+ font-size: 18px;
+ -webkit-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.3);
+ -moz-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.3);
+ box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.3);
+}
+
+.searchBox i{
+ position: relative;
+ top: -10px;
+ font-size: 22px;
+ color: #E4E4E4;
+ left: 35px;
+}
