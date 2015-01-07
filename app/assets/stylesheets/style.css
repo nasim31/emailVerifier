@@ -328,7 +328,7 @@
   width: 120px;
   font-weight: normal;
 }
-.formContainer input[type="text"], .formContainer input[type="password"] {
+.formContainer input[type="text"], .formContainer input[type="password"], .signupContainer input[type="text"], .signupContainer input[type="password"],.signupContainer input[type="number"]{
   padding: 7px 10px;
   width: 60%;
   border: 1px solid #cacaca;
