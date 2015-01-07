@@ -2,10 +2,39 @@
   <div class="mainLogin main">
     <div class="container">
       <div class="row">
-        <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-sm-12 formContainer">
+      <div class="formContainer">
+        <h3 class="text-center">Welcome Back</h3>
+        <div class="loginFormContainer">
+            <div class="loginForm"> 
+              <span ng-show="userModel.loginError" class="validErr">
+                {{userModel.loginError}}
+              </span>
+              <div class="fields">
+                <label for="loginLabel">Email</label>
+                <input type="text" autofocus="autofocus" ng-model="user.email" ng-enter="login()">
+              </div>
+              <div class="fields">
+                <label for="loginLabel">Password</label>
+                <input autocomplete="off" ng-model="user.password" type="password" ng-enter="login()">
+              </div>
+              <div class="forgotPassword fields">
+                Forgot password ?
+                <span><a href="/forgotPassword">Click here</a></span> 
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="loginButton">
+                    <a ng-click="login()" class="btn btn-success polymer-button">LOGIN</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+       <!--  <div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 col-sm-12 formContainer">
           <div class="row">
             <div class="welcomeBack col-md-6 col-sm-6 col-lg-6 col-xs-12 col-md-pull-6 col-lg-pull-6 col-md-offset-6 col-sm-pull-6 col-sm-offset-6 col-lg-offset-6">
-              Welcome Back
+              <h3 class="text-center">Welcome Back</h3>
             </div>
           </div>
           <div class="loginFormContainer">
@@ -38,7 +67,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

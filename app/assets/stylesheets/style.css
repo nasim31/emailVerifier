@@ -318,3 +318,29 @@
   font-size: 18px;
   line-height: 27px;
 }
+.formContainer {
+  padding-top: 150px;
+  width: 40%;
+  margin: auto;
+}
+.formContainer label {
+  /*float: left;*/
+  width: 120px;
+  font-weight: normal;
+}
+.formContainer input[type="text"], .formContainer input[type="password"] {
+  padding: 7px 10px;
+  width: 60%;
+  border: 1px solid #cacaca;
+}
+.fields {
+  margin-bottom: 20px;
+}
+.loginFormContainer {
+  padding: 20px;
+  margin-top: 30px;
+
+}
+.btn-success  {
+  padding: 7px 35px;
+}
