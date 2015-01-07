@@ -45,7 +45,7 @@ body {
 	text-align: center;
 }
 .slider {
-	background: url("../images/bk-banner.png") no-repeat;
+	background: url("bk-banner.png") no-repeat;
 	background-size: 100%;
 }
 .slider .carousel-inner {

@@ -241,6 +241,7 @@
   .sidebar{
     margin-left: -60%;
   }
+  .formContainer { width: 80% !important; }
 }
 @media only screen and (max-width: 568px){
   .panel{
@@ -317,4 +318,42 @@
   color: #fff; 
   font-size: 18px;
   line-height: 27px;
+}
+.formContainer, .signupContainer {
+  padding: 10px;
+  width: 40%;
+  margin: auto;
+  margin-top: 150px;
+  background: #fff;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
+}
+.formContainer label {
+  /*float: left;*/
+  width: 30%;
+  font-weight: normal;
+}
+.signupContainer {
+  margin-top: 80px;
+}
+.formContainer input[type="text"], .formContainer input[type="password"], .signupContainer input[type="text"], .signupContainer input[type="password"],.signupContainer input[type="number"]{
+  padding: 7px 10px;
+  width: 69%;
+  border: 1px solid #cacaca;
+}
+.signupContainer input[type="text"], .signupContainer input[type="password"],.signupContainer input[type="number"] {
+  width: 100%;
+}
+.fields {
+  margin-bottom: 20px;
+}
+.loginFormContainer {
+  padding: 20px;
+  margin-top: 30px;
+}
+.signupForm { padding: 20px;}
+.btn-success  {
+  padding: 7px 35px;
+}
+body {
+  background: #f6f6f6;
 }

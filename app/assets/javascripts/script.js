@@ -8,4 +8,12 @@ $(document).ready(function() {
 	$(window).resize(function() {
 		setHeight();
 	});
+	$(window).scroll(function(){
+		var sticky = $('.headermenu'),
+		scroll = $(window).scrollTop();
+
+		if (scroll >= 60) sticky.addClass('fixed');
+		else sticky.removeClass('fixed');
+
+	});
 });
