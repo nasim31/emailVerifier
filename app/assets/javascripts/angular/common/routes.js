@@ -13,6 +13,12 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
         controller: "userController",
         login: false
       })
+    .when("/signup",
+      { 
+        templateUrl: "/assets/user/register.html",
+        controller: "userController",
+        login: false
+      })
     .when("/forgotPassword",
       { 
         templateUrl: "/assets/user/forgotPassword.html",
