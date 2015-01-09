@@ -8,7 +8,7 @@
   <base href="/">
 </head>
 <body ng-app="myApp">
-<nav class="navbar header">
+<nav class="navbar header" ng-if="loggedUser">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed headerToggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -20,11 +20,7 @@
       <a class="navbar-brand" href="/"><img src="assets/logo.png"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right" ng-hide="loggedUser">
-        <li><a href="login">Login</a></li>
-        <li><a href="register">Create a account</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right" ng-show="loggedUser">
+      <ul class="nav navbar-nav navbar-right">
         <li><a href="/dashboard">Dashboard</a></li>
         <li><a target="_self" href="/users/sign_out">logout</a></li>
       </ul>

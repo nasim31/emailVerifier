@@ -1,4 +1,4 @@
-server "192.241.143.99", :app, :web, :db, :primary => true
+server "128.199.252.118", :app, :web, :db, :primary => true
 # server "128.199.213.226", :app, :web, :db, :primary => true
 set :deploy_to, "/var/www/verifier/"
 set :branch, 'master'
@@ -13,7 +13,7 @@ after 'deploy:update_code' do
   run "cd #{release_path};"
   
   run "rm -rf #{release_path}/tmp"
-  run "ln -s #{shared_path}/system/tmp #{release_path}"
+  run "ln -s #{shared_path}/tmp #{release_path}"
 
   run "rm -rf #{release_path}/public/system"
   run "ln -s #{shared_path}/system/ #{release_path}/public/" 
@@ -21,19 +21,7 @@ after 'deploy:update_code' do
   run "rm -rf #{release_path}/public/uploads"
   run "ln -s #{shared_path}/uploads  #{release_path}/public/"
 
-  # run "rm -rf #{release_path}/public/s3"
-  # run "ln -s #{shared_path}/uploads/s3  #{release_path}/public/"
-
-  # run "mv #{release_path}/config/database.example.yml  #{release_path}/config/database.yml"
-
   run "cd #{release_path} && bundle install"
-  # run "cd #{release_path} && rake db:drop"
-  # run "cd #{release_path} && rake db:create"
-  # run "cd #{release_path} && rake db:migrate"
-  # run "cd #{release_path} && rake db:seed"
-  # run "cd #{release_path} && rake assets:precompile"
-  # run "chown -R www-data:www-data #{release_path}/*"
-  # run "chmod -R 777 #{release_path}/log"
 end
 
 namespace :deploy do

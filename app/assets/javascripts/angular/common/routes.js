@@ -73,6 +73,7 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
 
     function notLogged(next){
       $rootScope.loggedUser = false;
+      console.log($rootScope.loggedUser)
       if ( next.login )  {
         $location.path( "/login" );
       }
@@ -80,6 +81,7 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $l
 
     function authenticate(next){  
       $rootScope.loggedUser = true;
+      console.log($rootScope.loggedUser)
       if ( !next.login )  {
         $location.path( "/dashboard" );
       }
