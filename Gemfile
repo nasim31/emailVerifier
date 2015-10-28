@@ -37,7 +37,8 @@ gem "carrierwave-mongoid", git: "git://github.com/jnicklas/carrierwave-mongoid.g
 # gem 'carrierwave-aws'
 gem 'roo' # For Reading and parsing Excel
 gem 'dbf' # For reading all DBF
-gem 'angularjs-rails'
+#gem 'angularjs-rails'
+gem 'angularjs-rails', '~> 1.4'
 gem 'angular_rails_csrf'
 gem 'angularjs-rails-resource', '~> 1.1.1'
 gem 'email_verifier'
